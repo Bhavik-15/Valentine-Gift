@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ Mobile Viewport Fix -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Love ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
@@ -9,6 +13,7 @@
 
 <style>
 
+/* 🌐 Base */
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -17,51 +22,64 @@ body{
     text-align:center;
     color:white;
     overflow-x:hidden;
+    padding:20px;
 }
 
 .container{
-    padding-top:80px;
+    max-width:900px;
+    margin:auto;
+    padding-top:60px;
 }
 
-/* Buttons */
+/* 📝 Text Responsive */
+h1{
+    font-size:clamp(1.6rem,4vw,2.5rem);
+}
+
+p{
+    font-size:clamp(1rem,2.5vw,1.2rem);
+    line-height:1.6;
+}
+
+/* 🔘 Buttons */
 button{
-    padding:15px 35px;
-    font-size:1.1rem;
+    padding:14px 30px;
+    font-size:clamp(.9rem,2.5vw,1.1rem);
     border:none;
     border-radius:40px;
     background:white;
     color:#ff4b6e;
     cursor:pointer;
     transition:.3s;
+    margin:10px;
 }
 
 button:hover{
-    transform:scale(1.1);
+    transform:scale(1.05);
 }
 
-/* Gallery */
+/* 📸 Gallery */
 #gallery{
     display:none;
-    margin-top:40px;
+    margin-top:30px;
 }
 
 .photos{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center;
-    padding:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:15px;
+    padding:10px;
 }
 
 .photos img{
-    width:220px;
+    width:100%;
     aspect-ratio:1/1;
     object-fit:cover;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Popup */
+/* 💌 Popup */
 .popup{
     position:fixed;
     top:0;
@@ -72,22 +90,24 @@ button:hover{
     display:none;
     align-items:center;
     justify-content:center;
+    padding:20px;
     z-index:10;
 }
 
 .popup-content{
     background:white;
     color:#ff4b6e;
-    padding:40px;
+    padding:25px;
     border-radius:20px;
-    max-width:500px;
+    max-width:420px;
+    width:100%;
 }
 
-/* Hearts */
+/* 💖 Hearts */
 .heart{
     position:fixed;
-    bottom:-50px;
-    font-size:24px;
+    bottom:-40px;
+    font-size:22px;
     animation:floatUp 6s linear infinite;
 }
 
@@ -95,11 +115,11 @@ button:hover{
     to{transform:translateY(-110vh);opacity:0;}
 }
 
-/* Roses */
+/* 🌹 Roses */
 .rose{
     position:fixed;
-    top:-50px;
-    font-size:26px;
+    top:-40px;
+    font-size:24px;
     animation:fallDown 8s linear infinite;
 }
 
@@ -123,15 +143,12 @@ This little surprise is just a small way<br>
 to show how much you mean to me 💕
 </p>
 
-<!-- ✅ EXPLORE BUTTON -->
 <button id="exploreBtn" onclick="openLetter()">Yes, Explore 🎁</button>
 
-<!-- 🎵 Music -->
-<audio id="song" src="song.mp3"></audio>
+<br>
 
-<div style="margin-top:20px;">
+<audio id="song" src="song.mp3"></audio>
 <button onclick="toggleMusic()" id="musicBtn">▶️ Play Music</button>
-</div>
 
 <!-- 📸 Gallery -->
 <div id="gallery">
@@ -169,24 +186,16 @@ to show how much you mean to me 💕
 
 let isPlaying=false;
 
-/* 💌 Open Letter */
 function openLetter(){
     document.getElementById("popup").style.display="flex";
 }
 
-/* 🎆 Start Surprise */
 function startSurprise(){
 
-    /* Close popup */
     document.getElementById("popup").style.display="none";
-
-    /* Hide Explore button forever */
     document.getElementById("exploreBtn").style.display="none";
-
-    /* Show Gallery */
     document.getElementById("gallery").style.display="block";
 
-    /* Play Music */
     const song=document.getElementById("song");
     const btn=document.getElementById("musicBtn");
 
@@ -199,7 +208,6 @@ function startSurprise(){
     roses();
 }
 
-/* 🎵 Music Toggle */
 function toggleMusic(){
     const song=document.getElementById("song");
     const btn=document.getElementById("musicBtn");
@@ -223,7 +231,6 @@ function fireworks(){
     (function frame(){
         confetti({particleCount:6,angle:60,spread:70,origin:{x:0}});
         confetti({particleCount:6,angle:120,spread:70,origin:{x:1}});
-
         if(Date.now()<end){requestAnimationFrame(frame);}
     }());
 }
