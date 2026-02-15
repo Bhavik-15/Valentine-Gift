@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- ✅ Mobile Viewport Fix -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For My Love ❤️</title>
@@ -13,7 +11,6 @@
 
 <style>
 
-/* 🌐 Base */
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -28,58 +25,26 @@ body{
 .container{
     max-width:900px;
     margin:auto;
-    padding-top:60px;
+    padding-top:50px;
 }
 
-/* 📝 Text Responsive */
-h1{
-    font-size:clamp(1.6rem,4vw,2.5rem);
-}
+/* Text */
+h1{font-size:clamp(1.6rem,4vw,2.5rem);}
+p{font-size:clamp(1rem,2.5vw,1.2rem);line-height:1.6;}
 
-p{
-    font-size:clamp(1rem,2.5vw,1.2rem);
-    line-height:1.6;
-}
-
-/* 🔘 Buttons */
+/* Buttons */
 button{
-    padding:14px 30px;
-    font-size:clamp(.9rem,2.5vw,1.1rem);
+    padding:14px 28px;
+    font-size:1rem;
     border:none;
     border-radius:40px;
     background:white;
     color:#ff4b6e;
     cursor:pointer;
-    transition:.3s;
-    margin:10px;
+    margin:8px;
 }
 
-button:hover{
-    transform:scale(1.05);
-}
-
-/* 📸 Gallery */
-#gallery{
-    display:none;
-    margin-top:30px;
-}
-
-.photos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-    gap:15px;
-    padding:10px;
-}
-
-.photos img{
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    border-radius:18px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* 💌 Popup */
+/* 💌 POPUP FIX */
 .popup{
     position:fixed;
     top:0;
@@ -99,11 +64,36 @@ button:hover{
     color:#ff4b6e;
     padding:25px;
     border-radius:20px;
-    max-width:420px;
     width:100%;
+    max-width:420px;
+    max-height:80vh;        /* KEY FIX */
+    overflow-y:auto;        /* Scroll if needed */
 }
 
-/* 💖 Hearts */
+/* 📸 Gallery */
+#gallery{
+    display:none;
+    margin-top:30px;
+}
+
+/* Slideshow */
+.slideshow{
+    position:relative;
+    max-width:320px;
+    margin:20px auto;
+}
+
+.slide{
+    display:none;
+}
+
+.slide img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Hearts */
 .heart{
     position:fixed;
     bottom:-40px;
@@ -115,7 +105,7 @@ button:hover{
     to{transform:translateY(-110vh);opacity:0;}
 }
 
-/* 🌹 Roses */
+/* Roses */
 .rose{
     position:fixed;
     top:-40px;
@@ -143,28 +133,30 @@ This little surprise is just a small way<br>
 to show how much you mean to me 💕
 </p>
 
-<button id="exploreBtn" onclick="openLetter()">Yes, Explore 🎁</button>
-
-<br>
+<button id="exploreBtn" onclick="openLetter()">Yes, Explore 🎁</button><br>
 
 <audio id="song" src="song.mp3"></audio>
 <button onclick="toggleMusic()" id="musicBtn">▶️ Play Music</button>
 
-<!-- 📸 Gallery -->
+<!-- 📸 SLIDESHOW GALLERY -->
 <div id="gallery">
+
 <h2>Our Beautiful Memories 📸</h2>
 
-<div class="photos">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
+<div class="slideshow">
+
+<div class="slide"><img src="photo1.jpg"></div>
+<div class="slide"><img src="photo2.jpg"></div>
+<div class="slide"><img src="photo3.jpg"></div>
+<div class="slide"><img src="photo4.jpg"></div>
+
 </div>
+
 </div>
 
 </div>
 
-<!-- 💌 Popup -->
+<!-- 💌 LETTER POPUP -->
 <div class="popup" id="popup">
   <div class="popup-content">
 
@@ -185,27 +177,35 @@ to show how much you mean to me 💕
 <script>
 
 let isPlaying=false;
+let slideIndex=0;
 
+/* Open Letter */
 function openLetter(){
     document.getElementById("popup").style.display="flex";
 }
 
+/* Start Surprise */
 function startSurprise(){
 
     document.getElementById("popup").style.display="none";
     document.getElementById("exploreBtn").style.display="none";
     document.getElementById("gallery").style.display="block";
 
+    playMusic();
+    fireworks();
+    hearts();
+    roses();
+    startSlideshow();
+}
+
+/* Music */
+function playMusic(){
     const song=document.getElementById("song");
     const btn=document.getElementById("musicBtn");
 
     song.play();
     btn.innerHTML="⏸ Pause Music";
     isPlaying=true;
-
-    fireworks();
-    hearts();
-    roses();
 }
 
 function toggleMusic(){
@@ -223,7 +223,23 @@ function toggleMusic(){
     isPlaying=!isPlaying;
 }
 
-/* 🎆 Fireworks */
+/* 🎞 Slideshow */
+function startSlideshow(){
+    const slides=document.getElementsByClassName("slide");
+
+    for(let i=0;i<slides.length;i++){
+        slides[i].style.display="none";
+    }
+
+    slideIndex++;
+    if(slideIndex>slides.length){slideIndex=1;}
+
+    slides[slideIndex-1].style.display="block";
+
+    setTimeout(startSlideshow,2500); // change every 2.5 sec
+}
+
+/* Fireworks */
 function fireworks(){
     var duration=5*1000;
     var end=Date.now()+duration;
@@ -235,7 +251,7 @@ function fireworks(){
     }());
 }
 
-/* 💖 Hearts */
+/* Hearts */
 function hearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
@@ -247,7 +263,7 @@ function hearts(){
     },500);
 }
 
-/* 🌹 Roses */
+/* Roses */
 function roses(){
     setInterval(()=>{
         const rose=document.createElement("div");
