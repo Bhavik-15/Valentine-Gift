@@ -5,7 +5,6 @@
 <title>For My Love ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <style>
@@ -14,18 +13,17 @@ body{
     margin:0;
     font-family:'Poppins',sans-serif;
     background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-    height:100vh;
-    overflow-x:hidden;
+    min-height:100vh;
     text-align:center;
     color:white;
+    overflow-x:hidden;
 }
 
-/* Center Content */
 .container{
     padding-top:80px;
 }
 
-/* Button */
+/* Buttons */
 button{
     padding:15px 35px;
     font-size:1.1rem;
@@ -61,14 +59,9 @@ button:hover{
     object-fit:cover;
     border-radius:20px;
     box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    transition:.4s;
 }
 
-.photos img:hover{
-    transform:scale(1.08);
-}
-
-/* 💌 Love Letter Popup */
+/* Popup */
 .popup{
     position:fixed;
     top:0;
@@ -88,16 +81,9 @@ button:hover{
     padding:40px;
     border-radius:20px;
     max-width:500px;
-    text-align:center;
-    animation:fadeIn .8s ease;
 }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:scale(.8);}
-    to{opacity:1; transform:scale(1);}
-}
-
-/* 💖 Floating Hearts */
+/* Hearts */
 .heart{
     position:fixed;
     bottom:-50px;
@@ -106,13 +92,10 @@ button:hover{
 }
 
 @keyframes floatUp{
-    to{
-        transform:translateY(-110vh);
-        opacity:0;
-    }
+    to{transform:translateY(-110vh);opacity:0;}
 }
 
-/* 🌹 Falling Roses */
+/* Roses */
 .rose{
     position:fixed;
     top:-50px;
@@ -121,10 +104,7 @@ button:hover{
 }
 
 @keyframes fallDown{
-    to{
-        transform:translateY(110vh);
-        opacity:.7;
-    }
+    to{transform:translateY(110vh);opacity:.7;}
 }
 
 </style>
@@ -143,7 +123,8 @@ This little surprise is just a small way<br>
 to show how much you mean to me 💕
 </p>
 
-<button onclick="openLetter()">Yes, Explore 🎁</button>
+<!-- ✅ EXPLORE BUTTON -->
+<button id="exploreBtn" onclick="openLetter()">Yes, Explore 🎁</button>
 
 <!-- 🎵 Music -->
 <audio id="song" src="song.mp3"></audio>
@@ -166,24 +147,27 @@ to show how much you mean to me 💕
 
 </div>
 
-<!-- 💌 Love Letter Popup -->
+<!-- 💌 Popup -->
 <div class="popup" id="popup">
   <div class="popup-content">
+
     <h2>💌 A Letter For You</h2>
 
     <p>
     My Love,<br><br>
     Every moment with you is my favorite memory.<br>
     You are my happiness, my peace, my forever ❤️<br><br>
-    This page holds a few pieces of our beautiful journey…<br>
-    I hope it makes you smile the way you make me smile every day 💖
+    I hope this surprise makes you smile 💖
     </p>
 
     <button onclick="startSurprise()">Open Memories 📸</button>
+
   </div>
 </div>
 
 <script>
+
+let isPlaying=false;
 
 /* 💌 Open Letter */
 function openLetter(){
@@ -191,13 +175,18 @@ function openLetter(){
 }
 
 /* 🎆 Start Surprise */
-let isPlaying=false;
-
 function startSurprise(){
 
+    /* Close popup */
     document.getElementById("popup").style.display="none";
+
+    /* Hide Explore button forever */
+    document.getElementById("exploreBtn").style.display="none";
+
+    /* Show Gallery */
     document.getElementById("gallery").style.display="block";
 
+    /* Play Music */
     const song=document.getElementById("song");
     const btn=document.getElementById("musicBtn");
 
@@ -206,8 +195,8 @@ function startSurprise(){
     isPlaying=true;
 
     fireworks();
-    startHearts();
-    startRoses();
+    hearts();
+    roses();
 }
 
 /* 🎵 Music Toggle */
@@ -228,54 +217,37 @@ function toggleMusic(){
 
 /* 🎆 Fireworks */
 function fireworks(){
-
     var duration=5*1000;
     var end=Date.now()+duration;
 
     (function frame(){
-        confetti({
-            particleCount:6,
-            angle:60,
-            spread:70,
-            origin:{x:0}
-        });
-        confetti({
-            particleCount:6,
-            angle:120,
-            spread:70,
-            origin:{x:1}
-        });
+        confetti({particleCount:6,angle:60,spread:70,origin:{x:0}});
+        confetti({particleCount:6,angle:120,spread:70,origin:{x:1}});
 
-        if(Date.now()<end){
-            requestAnimationFrame(frame);
-        }
+        if(Date.now()<end){requestAnimationFrame(frame);}
     }());
 }
 
-/* 💖 Floating Hearts */
-function startHearts(){
+/* 💖 Hearts */
+function hearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
         heart.classList.add("heart");
         heart.innerHTML="💖";
         heart.style.left=Math.random()*100+"vw";
-        heart.style.animationDuration=(4+Math.random()*3)+"s";
         document.body.appendChild(heart);
-
         setTimeout(()=>heart.remove(),7000);
     },500);
 }
 
-/* 🌹 Falling Roses */
-function startRoses(){
+/* 🌹 Roses */
+function roses(){
     setInterval(()=>{
         const rose=document.createElement("div");
         rose.classList.add("rose");
         rose.innerHTML="🌹";
         rose.style.left=Math.random()*100+"vw";
-        rose.style.animationDuration=(5+Math.random()*4)+"s";
         document.body.appendChild(rose);
-
         setTimeout(()=>rose.remove(),9000);
     },700);
 }
