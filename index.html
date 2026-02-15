@@ -11,6 +11,12 @@
 
 <style>
 
+/* GLOBAL FIX */
+*{
+  box-sizing:border-box;
+}
+
+/* BODY */
 body{
     margin:0;
     font-family:'Poppins',sans-serif;
@@ -28,11 +34,17 @@ body{
     padding-top:50px;
 }
 
-/* Text */
-h1{font-size:clamp(1.6rem,4vw,2.5rem);}
-p{font-size:clamp(1rem,2.5vw,1.2rem);line-height:1.6;}
+/* TEXT */
+h1{
+    font-size:clamp(1.6rem,4vw,2.5rem);
+}
 
-/* Buttons */
+p{
+    font-size:clamp(1rem,2.5vw,1.2rem);
+    line-height:1.6;
+}
+
+/* BUTTONS */
 button{
     padding:14px 28px;
     font-size:1rem;
@@ -44,7 +56,7 @@ button{
     margin:8px;
 }
 
-/* 💌 POPUP FIX */
+/* 💌 POPUP BACKGROUND */
 .popup{
     position:fixed;
     top:0;
@@ -55,28 +67,34 @@ button{
     display:none;
     align-items:center;
     justify-content:center;
-    padding:20px;
+    padding:16px;
     z-index:10;
 }
 
+/* 💌 LETTER BOX FIXED */
 .popup-content{
     background:white;
     color:#ff4b6e;
-    padding:25px;
-    border-radius:20px;
+
     width:100%;
-    max-width:420px;
-    max-height:80vh;        /* KEY FIX */
-    overflow-y:auto;        /* Scroll if needed */
+    max-width:380px;
+
+    padding:22px 18px;
+
+    border-radius:18px;
+
+    max-height:80vh;
+    overflow-y:auto;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
 }
 
-/* 📸 Gallery */
+/* 📸 SLIDESHOW */
 #gallery{
     display:none;
     margin-top:30px;
 }
 
-/* Slideshow */
 .slideshow{
     position:relative;
     max-width:320px;
@@ -93,7 +111,7 @@ button{
     box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Hearts */
+/* 💖 HEARTS */
 .heart{
     position:fixed;
     bottom:-40px;
@@ -105,7 +123,7 @@ button{
     to{transform:translateY(-110vh);opacity:0;}
 }
 
-/* Roses */
+/* 🌹 ROSES */
 .rose{
     position:fixed;
     top:-40px;
@@ -138,7 +156,7 @@ to show how much you mean to me 💕
 <audio id="song" src="song.mp3"></audio>
 <button onclick="toggleMusic()" id="musicBtn">▶️ Play Music</button>
 
-<!-- 📸 SLIDESHOW GALLERY -->
+<!-- 📸 MEMORIES -->
 <div id="gallery">
 
 <h2>Our Beautiful Memories 📸</h2>
@@ -156,7 +174,7 @@ to show how much you mean to me 💕
 
 </div>
 
-<!-- 💌 LETTER POPUP -->
+<!-- 💌 LETTER -->
 <div class="popup" id="popup">
   <div class="popup-content">
 
@@ -179,12 +197,12 @@ to show how much you mean to me 💕
 let isPlaying=false;
 let slideIndex=0;
 
-/* Open Letter */
+/* 💌 Open Letter */
 function openLetter(){
     document.getElementById("popup").style.display="flex";
 }
 
-/* Start Surprise */
+/* 🎁 Start Surprise */
 function startSurprise(){
 
     document.getElementById("popup").style.display="none";
@@ -195,10 +213,10 @@ function startSurprise(){
     fireworks();
     hearts();
     roses();
-    startSlideshow();
+    slideshow();
 }
 
-/* Music */
+/* 🎵 Music */
 function playMusic(){
     const song=document.getElementById("song");
     const btn=document.getElementById("musicBtn");
@@ -224,7 +242,7 @@ function toggleMusic(){
 }
 
 /* 🎞 Slideshow */
-function startSlideshow(){
+function slideshow(){
     const slides=document.getElementsByClassName("slide");
 
     for(let i=0;i<slides.length;i++){
@@ -236,10 +254,10 @@ function startSlideshow(){
 
     slides[slideIndex-1].style.display="block";
 
-    setTimeout(startSlideshow,2500); // change every 2.5 sec
+    setTimeout(slideshow,2500);
 }
 
-/* Fireworks */
+/* 🎆 Fireworks */
 function fireworks(){
     var duration=5*1000;
     var end=Date.now()+duration;
@@ -251,7 +269,7 @@ function fireworks(){
     }());
 }
 
-/* Hearts */
+/* 💖 Hearts */
 function hearts(){
     setInterval(()=>{
         const heart=document.createElement("div");
@@ -263,7 +281,7 @@ function hearts(){
     },500);
 }
 
-/* Roses */
+/* 🌹 Roses */
 function roses(){
     setInterval(()=>{
         const rose=document.createElement("div");
@@ -279,5 +297,3 @@ function roses(){
 
 </body>
 </html>
-
-
