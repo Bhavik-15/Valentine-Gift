@@ -9,128 +9,206 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body{
-    font-family:'Montserrat',sans-serif;
-    background:#fef6f3;
-    overflow-x:hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: #fef6f3;
+    color: #5a5a5a;
+    overflow-x: hidden;
 }
 
-/* SECTION */
+/* SECTION STYLING */
 .section{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:40px 20px;
-    opacity:0;
-    transform:translateY(30px);
-    transition:1.5s;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.5s ease;
 }
-.section.active{opacity:1;transform:translateY(0);}
+
+.section.active{
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* FIRST PAGE */
 #firstPage{
-    background:linear-gradient(135deg,#ffecd2,#fcb69f);
-    text-align:center;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    flex-direction: column;
+    text-align: center;
 }
 
 .main-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:3.5rem;
-    color:#8b5a4d;
-    margin-bottom:40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    color: #8b5a4d;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
 }
 
 .love-letter{
-    max-width:700px;
-    line-height:2;
-    color:#6b4e45;
-    margin-bottom:50px;
+    max-width: 700px;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 2.2;
+    color: #6b4e45;
+    font-weight: 300;
+    margin-bottom: 60px;
+}
+
+.love-letter p{ margin-bottom: 30px; }
+
+.love-letter em{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+    color: #8b5a4d;
+    font-style: italic;
 }
 
 .continue-btn{
-    background:#d4a5a5;
-    color:white;
-    border:none;
-    padding:15px 40px;
-    border-radius:50px;
-    cursor:pointer;
+    background: #d4a5a5;
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.continue-btn:hover{
+    background: #c89393;
+    transform: translateY(-3px);
 }
 
 /* GALLERY */
-#galleryPage{display:none;}
+#galleryPage{
+    background: #fef6f3;
+    flex-direction: column;
+    display: none;
+}
+
+.gallery-container{
+    max-width: 900px;
+    width: 100%;
+}
 
 .section-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:2.5rem;
-    margin-bottom:40px;
-    color:#8b5a4d;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #8b5a4d;
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 /* SLIDES */
-.slideshow-wrapper{max-width:600px;width:100%;}
+.slideshow-wrapper{
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px;
+}
 
-.slide{display:none;flex-direction:column;align-items:center;}
-.slide.active{display:flex;animation:fade 1s;}
+.slide{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
 
-@keyframes fade{from{opacity:0}to{opacity:1}}
+.slide.active{
+    display: flex;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:scale(.95);}
+    to{opacity:1;transform:scale(1);}
+}
 
 .photo-frame{
-    width:100%;
-    background:white;
-    padding:20px;
-    box-shadow:0 20px 60px rgba(0,0,0,.1);
-    margin-bottom:25px;
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.1);
+    margin-bottom: 40px;
 }
 
 .photo-frame img,
 .photo-frame video{
-    width:100%;
-    display:block;
+    width: 100%;
+    display: block;
 }
 
+/* 🎬 Cinematic Bars */
+.cinematic-video{
+    position: relative;
+    overflow: hidden;
+}
+
+.cinematic-video::before,
+.cinematic-video::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    height:40px;
+    background:black;
+    z-index:2;
+}
+
+.cinematic-video::before{top:0;}
+.cinematic-video::after{bottom:0;}
+
 .photo-message{
-    font-family:'Cormorant Garamond',serif;
-    font-size:1.5rem;
-    color:#8b5a4d;
-    text-align:center;
+    text-align: center;
+    max-width: 500px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: #8b5a4d;
+    font-style: italic;
 }
 
 /* NAV */
 .slide-navigation{
     display:flex;
+    justify-content:center;
     align-items:center;
-    gap:25px;
-    margin-top:30px;
+    gap:30px;
+    margin-top:50px;
 }
 
 .nav-btn{
-    width:45px;height:45px;
-    border-radius:50%;
     border:1px solid #d4a5a5;
-    background:none;
+    width:50px;height:50px;
+    border-radius:50%;
     cursor:pointer;
-    font-size:1.3rem;
 }
 
 /* DOTS */
-.slide-dots{display:flex;gap:10px;}
+.slide-dots{display:flex;gap:12px;}
 .dot{
     width:10px;height:10px;
-    background:#e8d5d0;
     border-radius:50%;
-    cursor:pointer;
+    background:#e8d5d0;
 }
 .dot.active{background:#d4a5a5;}
 
 /* MUSIC */
 .music-control{
     position:fixed;
-    bottom:25px;
-    right:25px;
+    bottom:30px;
+    right:30px;
 }
 .music-btn{
     width:60px;height:60px;
@@ -138,8 +216,20 @@ body{
     border:1px solid #d4a5a5;
     background:white;
     cursor:pointer;
-    font-size:1.2rem;
 }
+
+/* HEARTS */
+.heart{
+    position:fixed;
+    font-size:20px;
+    animation:floatHeart 8s linear infinite;
+}
+
+@keyframes floatHeart{
+    from{bottom:-50px;}
+    to{bottom:110vh;}
+}
+
 </style>
 </head>
 
@@ -148,13 +238,10 @@ body{
 <!-- FIRST PAGE -->
 <section id="firstPage" class="section active">
 
-<h1 class="main-title">To My Everything ❤️</h1>
+<h1 class="main-title">To My Everything</h1>
 
 <div class="love-letter">
-<p>You are my light in every dark moment.</p>
-<p>My calm in every storm.</p>
-<p>My forever home.</p>
-<p>I made something special for you…</p>
+<p>You are my light, my calm, my forever ❤️</p>
 </div>
 
 <button class="continue-btn" onclick="continueToSurprise()">Continue</button>
@@ -164,67 +251,53 @@ body{
 <!-- GALLERY -->
 <section id="galleryPage" class="section">
 
+<div class="gallery-container">
+
 <h2 class="section-title">Our Beautiful Moments</h2>
 
 <div class="slideshow-wrapper">
 
-<!-- PHOTO 1 -->
+<!-- PHOTO SLIDES -->
 <div class="slide active">
-<div class="photo-frame">
-<img src="photo1.jpg">
-</div>
-<div class="photo-message">Every moment with you feels magical ✨</div>
+<div class="photo-frame"><img src="photo1.jpg"></div>
+<div class="photo-message">Every moment with you feels magical</div>
 </div>
 
-<!-- PHOTO 2 -->
 <div class="slide">
-<div class="photo-frame">
-<img src="photo2.jpg">
-</div>
-<div class="photo-message">Your smile is my favorite view ❤️</div>
+<div class="photo-frame"><img src="photo2.jpg"></div>
+<div class="photo-message">Your smile is my favorite view</div>
 </div>
 
-<!-- VIDEO SLIDE -->
 <div class="slide">
-<div class="photo-frame">
-
-<video
-src="https://drive.google.com/uc?export=download&id=1R88gcHkFAXZ8OdLp0RQhlqFi2-umYXuL"
-muted
-autoplay
-loop
-playsinline>
-</video>
-
-</div>
-<div class="photo-message">Our memories in motion 🎥❤️</div>
+<div class="photo-frame"><img src="photo3.jpg"></div>
+<div class="photo-message">In your arms, I found home</div>
 </div>
 
-<!-- PHOTO 3 -->
 <div class="slide">
-<div class="photo-frame">
-<img src="photo3.jpg">
-</div>
-<div class="photo-message">In your arms, I found home 🏡</div>
+<div class="photo-frame"><img src="photo4.jpg"></div>
+<div class="photo-message">Loving you is beautiful</div>
 </div>
 
-<!-- PHOTO 4 -->
+<!-- 🎬 VIDEO SLIDE ADDED -->
 <div class="slide">
-<div class="photo-frame">
-<img src="photo4.jpg">
+<div class="photo-frame cinematic-video">
+
+<video src="video1.mp4" muted autoplay loop playsinline></video>
+
 </div>
-<div class="photo-message">Loving you is my greatest blessing 💖</div>
+<div class="photo-message">Our memories in motion ❤️</div>
 </div>
 
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <div class="slide-navigation">
 <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
 <div class="slide-dots" id="slideDots"></div>
 <button class="nav-btn" onclick="changeSlide(1)">›</button>
 </div>
 
+</div>
 </section>
 
 <!-- MUSIC -->
@@ -234,86 +307,54 @@ playsinline>
 </div>
 
 <script>
-let currentSlide=0;
-let autoSlide=null;
-let isPlaying=false;
+let currentSlide=0,isPlaying=false;
 
-/* DOTS */
 function createDots(){
 const slides=document.querySelectorAll('.slide');
 const dotsContainer=document.getElementById('slideDots');
-
 slides.forEach((_,i)=>{
 const dot=document.createElement('div');
 dot.className='dot';
-if(i===0) dot.classList.add('active');
+if(i===0)dot.classList.add('active');
 dot.onclick=()=>goToSlide(i);
 dotsContainer.appendChild(dot);
 });
 }
 
-/* CHANGE SLIDE */
 function changeSlide(dir){
-resetVideos();
-
 const slides=document.querySelectorAll('.slide');
 const dots=document.querySelectorAll('.dot');
-
 slides[currentSlide].classList.remove('active');
 dots[currentSlide].classList.remove('active');
-
 currentSlide+=dir;
-if(currentSlide>=slides.length) currentSlide=0;
-if(currentSlide<0) currentSlide=slides.length-1;
-
+if(currentSlide>=slides.length)currentSlide=0;
+if(currentSlide<0)currentSlide=slides.length-1;
 slides[currentSlide].classList.add('active');
 dots[currentSlide].classList.add('active');
 }
 
-/* GO TO SLIDE */
 function goToSlide(i){
-resetVideos();
-
 const slides=document.querySelectorAll('.slide');
 const dots=document.querySelectorAll('.dot');
-
 slides[currentSlide].classList.remove('active');
 dots[currentSlide].classList.remove('active');
-
 currentSlide=i;
-
 slides[currentSlide].classList.add('active');
 dots[currentSlide].classList.add('active');
 }
 
-/* AUTO SLIDE 2.5s */
-function startAutoSlide(){
-autoSlide=setInterval(()=>changeSlide(1),2500);
-}
-
-/* RESET VIDEOS */
-function resetVideos(){
-document.querySelectorAll('video').forEach(v=>{
-v.pause();
-v.currentTime=0;
-});
-}
-
-/* CONTINUE */
 function continueToSurprise(){
 document.getElementById('firstPage').style.display='none';
 const gallery=document.getElementById('galleryPage');
 gallery.style.display='flex';
-
 setTimeout(()=>{
 gallery.classList.add('active');
 createDots();
 startMusic();
-startAutoSlide();
+createHearts();
 },100);
 }
 
-/* MUSIC */
 function startMusic(){
 const music=document.getElementById('bgMusic');
 music.play();
@@ -322,9 +363,19 @@ isPlaying=true;
 
 function toggleMusic(){
 const music=document.getElementById('bgMusic');
-if(isPlaying){music.pause();}
-else{music.play();}
+if(isPlaying)music.pause();else music.play();
 isPlaying=!isPlaying;
+}
+
+function createHearts(){
+setInterval(()=>{
+const heart=document.createElement('div');
+heart.className='heart';
+heart.textContent='❤';
+heart.style.left=Math.random()*100+'vw';
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),8000);
+},600);
 }
 </script>
 
