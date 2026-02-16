@@ -1,297 +1,567 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Love ❤️</title>
+<title>For You, My Love ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL FIX */
 *{
-  box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* BODY */
 body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
-    min-height:100vh;
-    text-align:center;
-    color:white;
-    overflow-x:hidden;
-    padding:20px;
+    font-family: 'Montserrat', sans-serif;
+    background: #fef6f3;
+    color: #5a5a5a;
+    overflow-x: hidden;
 }
 
-.container{
-    max-width:900px;
-    margin:auto;
-    padding-top:50px;
+/* SECTION STYLING */
+.section{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.5s ease;
 }
 
-/* TEXT */
-h1{
-    font-size:clamp(1.6rem,4vw,2.5rem);
+.section.active{
+    opacity: 1;
+    transform: translateY(0);
 }
 
-p{
-    font-size:clamp(1rem,2.5vw,1.2rem);
-    line-height:1.6;
+/* FIRST PAGE - WHY YOU'RE IMPORTANT */
+#firstPage{
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    flex-direction: column;
+    text-align: center;
 }
 
-/* BUTTONS */
-button{
-    padding:14px 28px;
-    font-size:1rem;
-    border:none;
-    border-radius:40px;
-    background:white;
-    color:#ff4b6e;
-    cursor:pointer;
-    margin:8px;
+.main-title{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    color: #8b5a4d;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
 }
 
-/* 💌 POPUP BACKGROUND */
-.popup{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.6);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    z-index:10;
+.love-letter{
+    max-width: 700px;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    line-height: 2.2;
+    color: #6b4e45;
+    font-weight: 300;
+    margin-bottom: 60px;
 }
 
-/* 💌 LETTER BOX FIXED */
-.popup-content{
-    background:white;
-    color:#ff4b6e;
-
-    width:100%;
-    max-width:380px;
-
-    padding:22px 18px;
-
-    border-radius:18px;
-
-    max-height:80vh;
-    overflow-y:auto;
-
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+.love-letter p{
+    margin-bottom: 30px;
 }
 
-/* 📸 SLIDESHOW */
-#gallery{
-    display:none;
-    margin-top:30px;
+.love-letter em{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+    color: #8b5a4d;
+    font-style: italic;
 }
 
-.slideshow{
-    position:relative;
-    max-width:320px;
-    margin:20px auto;
+.continue-btn{
+    background: #d4a5a5;
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(212, 165, 165, 0.3);
+}
+
+.continue-btn:hover{
+    background: #c89393;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 165, 165, 0.4);
+}
+
+/* GALLERY SECTION */
+#galleryPage{
+    background: #fef6f3;
+    flex-direction: column;
+}
+
+.gallery-container{
+    max-width: 900px;
+    width: 100%;
+}
+
+.section-title{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: #8b5a4d;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+/* SLIDESHOW */
+.slideshow-wrapper{
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px;
 }
 
 .slide{
-    display:none;
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
 
-.slide img{
-    width:100%;
-    border-radius:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+.slide.active{
+    display: flex;
+    animation: fadeIn 1s ease;
 }
 
-/* 💖 HEARTS */
+@keyframes fadeIn{
+    from{ opacity: 0; transform: scale(0.95); }
+    to{ opacity: 1; transform: scale(1); }
+}
+
+.photo-frame{
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.photo-frame img{
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+}
+
+.photo-message{
+    text-align: center;
+    max-width: 500px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 300;
+    color: #8b5a4d;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* NAVIGATION */
+.slide-navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.nav-btn{
+    background: none;
+    border: 1px solid #d4a5a5;
+    color: #d4a5a5;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover{
+    background: #d4a5a5;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* DOTS */
+.slide-dots{
+    display: flex;
+    gap: 12px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e8d5d0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active{
+    background: #d4a5a5;
+    transform: scale(1.3);
+}
+
+/* MUSIC CONTROL */
+.music-control{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.music-btn{
+    background: white;
+    border: 1px solid #d4a5a5;
+    color: #d4a5a5;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.music-btn:hover{
+    background: #d4a5a5;
+    color: white;
+    transform: scale(1.05);
+}
+
+.music-btn.playing{
+    background: #d4a5a5;
+    color: white;
+}
+
+/* FLOATING HEARTS */
 .heart{
-    position:fixed;
-    bottom:-40px;
-    font-size:22px;
-    animation:floatUp 6s linear infinite;
+    position: fixed;
+    font-size: 20px;
+    opacity: 0;
+    animation: floatHeart 8s ease-in infinite;
+    pointer-events: none;
+    z-index: 1;
 }
 
-@keyframes floatUp{
-    to{transform:translateY(-110vh);opacity:0;}
+@keyframes floatHeart{
+    0%{
+        bottom: -50px;
+        opacity: 0;
+        transform: translateX(0) rotate(0deg);
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 0.8;
+    }
+    100%{
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(50px) rotate(180deg);
+    }
 }
 
-/* 🌹 ROSES */
-.rose{
-    position:fixed;
-    top:-40px;
-    font-size:24px;
-    animation:fallDown 8s linear infinite;
+/* RESPONSIVE */
+@media(max-width: 768px){
+    .main-title{
+        font-size: 2.5rem;
+    }
+    
+    .love-letter{
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+    
+    .photo-frame{
+        padding: 15px;
+    }
+    
+    .slide-navigation{
+        gap: 20px;
+        margin-top: 40px;
+    }
+    
+    .music-control{
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
-@keyframes fallDown{
-    to{transform:translateY(110vh);opacity:.7;}
+/* HIDE INITIALLY */
+#galleryPage{
+    display: none;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<!-- FIRST PAGE: WHY SHE'S IMPORTANT -->
 
-<h1>Happy Valentine’s Day My Love ❤️</h1>
+<section id="firstPage" class="section active">
 
-<p>
-From the moment you came into my life,<br>
-everything became more beautiful 🌸<br><br>
-This little surprise is just a small way<br>
-to show how much you mean to me 💕
-</p>
+```
+<h1 class="main-title">To My Everything</h1>
 
-<button id="exploreBtn" onclick="openLetter()">Yes, Explore 🎁</button><br>
-
-<audio id="song" src="song.mp3"></audio>
-<button onclick="toggleMusic()" id="musicBtn">▶️ Play Music</button>
-
-<!-- 📸 MEMORIES -->
-<div id="gallery">
-
-<h2>Our Beautiful Memories 📸</h2>
-
-<div class="slideshow">
-
-<div class="slide"><img src="photo1.jpg"></div>
-<div class="slide"><img src="photo2.jpg"></div>
-<div class="slide"><img src="photo3.jpg"></div>
-<div class="slide"><img src="photo4.jpg"></div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- 💌 LETTER -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-
-    <h2>💌 A Letter For You</h2>
-
+<div class="love-letter">
     <p>
-    My Love,<br><br>
-    Every moment with you is my favorite memory.<br>
-    You are my happiness, my peace, my forever ❤️<br><br>
-    I hope this surprise makes you smile 💖
+        In a world of billions, you are the one who makes my heart beat with purpose.
     </p>
+    
+    <p>
+        You are <em>my light</em> when days feel dark,<br>
+        <em>my calm</em> when storms arrive,<br>
+        <em>my home</em> in every moment.
+    </p>
+    
+    <p>
+        You're the reason I believe in love, in kindness, in forever.<br>
+        Every smile, every laugh, every quiet moment with you<br>
+        is a reminder of how blessed I am.
+    </p>
+    
+    <p>
+        You are not just important to me—<br>
+        <em>you are everything to me.</em>
+    </p>
+    
+    <p style="margin-top: 50px; font-size: 0.95em; color: #9b7b73;">
+        I made something special for you...<br>
+        Are you ready?
+    </p>
+</div>
 
-    <button onclick="startSurprise()">Open Memories 📸</button>
+<button class="continue-btn" onclick="continueToSurprise()">Continue</button>
+```
 
-  </div>
+</section>
+
+<!-- GALLERY PAGE: PHOTOS WITH MESSAGES -->
+
+<section id="galleryPage" class="section">
+
+```
+<div class="gallery-container">
+    
+    <h2 class="section-title">Our Beautiful Moments</h2>
+    
+    <div class="slideshow-wrapper">
+        
+        <!-- SLIDE 1 -->
+        <div class="slide active">
+            <div class="photo-frame">
+                <img src="photo1.jpg" alt="Our Memory">
+            </div>
+            <div class="photo-message">
+                "Every moment with you feels like a dream I never want to wake up from"
+            </div>
+        </div>
+        
+        <!-- SLIDE 2 -->
+        <div class="slide">
+            <div class="photo-frame">
+                <img src="photo2.jpg" alt="Our Memory">
+            </div>
+            <div class="photo-message">
+                "Your smile is my favorite view in the entire world"
+            </div>
+        </div>
+        
+        <!-- SLIDE 3 -->
+        <div class="slide">
+            <div class="photo-frame">
+                <img src="photo3.jpg" alt="Our Memory">
+            </div>
+            <div class="photo-message">
+                "In your arms, I found my forever home"
+            </div>
+        </div>
+        
+        <!-- SLIDE 4 -->
+        <div class="slide">
+            <div class="photo-frame">
+                <img src="photo4.jpg" alt="Our Memory">
+            </div>
+            <div class="photo-message">
+                "Loving you is the easiest and most beautiful thing I've ever done"
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- NAVIGATION -->
+    <div class="slide-navigation">
+        <button class="nav-btn" onclick="changeSlide(-1)">‹</button>
+        <div class="slide-dots" id="slideDots"></div>
+        <button class="nav-btn" onclick="changeSlide(1)">›</button>
+    </div>
+    
+</div>
+```
+
+</section>
+
+<!-- MUSIC CONTROL -->
+
+<div class="music-control">
+    <audio id="bgMusic" src="song.mp3" loop></audio>
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">♪</button>
 </div>
 
 <script>
 
-let isPlaying=false;
-let slideIndex=0;
+let currentSlide = 0;
+let isPlaying = false;
 
-/* 💌 Open Letter */
-function openLetter(){
-    document.getElementById("popup").style.display="flex";
+// CREATE DOTS
+function createDots(){
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('slideDots');
+    
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        if(index === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+    });
 }
 
-/* 🎁 Start Surprise */
-function startSurprise(){
-
-    document.getElementById("popup").style.display="none";
-    document.getElementById("exploreBtn").style.display="none";
-    document.getElementById("gallery").style.display="block";
-
-    playMusic();
-    fireworks();
-    hearts();
-    roses();
-    slideshow();
+// CHANGE SLIDE
+function changeSlide(direction){
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide += direction;
+    
+    if(currentSlide >= slides.length) currentSlide = 0;
+    if(currentSlide < 0) currentSlide = slides.length - 1;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
 }
 
-/* 🎵 Music */
-function playMusic(){
-    const song=document.getElementById("song");
-    const btn=document.getElementById("musicBtn");
+// GO TO SPECIFIC SLIDE
+function goToSlide(index){
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    currentSlide = index;
+    
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
 
-    song.play();
-    btn.innerHTML="⏸ Pause Music";
-    isPlaying=true;
+// CONTINUE TO SURPRISE
+function continueToSurprise(){
+    const firstPage = document.getElementById('firstPage');
+    const galleryPage = document.getElementById('galleryPage');
+    
+    // Fade out first page
+    firstPage.style.opacity = '0';
+    firstPage.style.transform = 'translateY(-30px)';
+    
+    setTimeout(() => {
+        firstPage.style.display = 'none';
+        galleryPage.style.display = 'flex';
+        
+        // Fade in gallery page
+        setTimeout(() => {
+            galleryPage.classList.add('active');
+            createDots();
+            startMusic();
+            createHearts();
+        }, 100);
+    }, 1000);
+}
+
+// MUSIC CONTROL
+function startMusic(){
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicBtn');
+    
+    music.play().catch(e => {
+        console.log('Autoplay blocked, user interaction needed');
+    });
+    
+    btn.classList.add('playing');
+    isPlaying = true;
 }
 
 function toggleMusic(){
-    const song=document.getElementById("song");
-    const btn=document.getElementById("musicBtn");
-
+    const music = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicBtn');
+    
     if(isPlaying){
-        song.pause();
-        btn.innerHTML="▶️ Play Music";
-    }else{
-        song.play();
-        btn.innerHTML="⏸ Pause Music";
+        music.pause();
+        btn.classList.remove('playing');
+        isPlaying = false;
+    } else {
+        music.play();
+        btn.classList.add('playing');
+        isPlaying = true;
     }
-
-    isPlaying=!isPlaying;
 }
 
-/* 🎞 Slideshow */
-function slideshow(){
-    const slides=document.getElementsByClassName("slide");
-
-    for(let i=0;i<slides.length;i++){
-        slides[i].style.display="none";
-    }
-
-    slideIndex++;
-    if(slideIndex>slides.length){slideIndex=1;}
-
-    slides[slideIndex-1].style.display="block";
-
-    setTimeout(slideshow,2500);
-}
-
-/* 🎆 Fireworks */
-function fireworks(){
-    var duration=5*1000;
-    var end=Date.now()+duration;
-
-    (function frame(){
-        confetti({particleCount:6,angle:60,spread:70,origin:{x:0}});
-        confetti({particleCount:6,angle:120,spread:70,origin:{x:1}});
-        if(Date.now()<end){requestAnimationFrame(frame);}
-    }());
-}
-
-/* 💖 Hearts */
-function hearts(){
-    setInterval(()=>{
-        const heart=document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML="💖";
-        heart.style.left=Math.random()*100+"vw";
+// FLOATING HEARTS
+function createHearts(){
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        const hearts = ['♡', '❤', '💕', '💗'];
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+        heart.style.color = '#d4a5a5';
         document.body.appendChild(heart);
-        setTimeout(()=>heart.remove(),7000);
-    },500);
+        
+        setTimeout(() => heart.remove(), 8000);
+    }, 600);
 }
 
-/* 🌹 Roses */
-function roses(){
-    setInterval(()=>{
-        const rose=document.createElement("div");
-        rose.classList.add("rose");
-        rose.innerHTML="🌹";
-        rose.style.left=Math.random()*100+"vw";
-        document.body.appendChild(rose);
-        setTimeout(()=>rose.remove(),9000);
-    },700);
+// AUTO ADVANCE SLIDESHOW (optional - every 5 seconds)
+let autoSlide = null;
+
+function startAutoSlide(){
+    autoSlide = setInterval(() => {
+        changeSlide(1);
+    }, 5000);
 }
+
+// Uncomment the line below if you want auto-advancing slideshow
+// startAutoSlide();
 
 </script>
 
