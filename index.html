@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For You, My Love ❤️</title>
-  
+
   <!-- Premium Romantic Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  
+
   <style>
     /* CSS Variables & Reset */
     :root {
@@ -64,7 +64,7 @@
       pointer-events: none;
       z-index: 999999;
     }
-    
+
     a, button, .interactive {
       cursor: none;
     }
@@ -235,13 +235,13 @@
       align-items: center;
       position: relative;
     }
-    
+
     /* Pinned Header overlaid on top */
     .section-header {
-      position: absolute; 
-      top: 10vh; 
-      left: 5vw; 
-      width: 90vw; 
+      position: absolute;
+      top: 10vh;
+      left: 5vw;
+      width: 90vw;
       z-index: 10;
       display: flex;
       align-items: center;
@@ -272,7 +272,7 @@
       justify-content: center;
       align-items: center;
     }
-    
+
     /* Elegant Photo Frame */
     .img-wrap {
       height: 65vh;
@@ -293,13 +293,13 @@
       height: 100%;
       object-fit: cover;
       /* By setting object-position slightly higher, we save the heads from cropping */
-      object-position: center 20%; 
+      object-position: center 20%;
       transition: filter 0.8s ease, transform 0.8s ease;
     }
     .gallery-item:hover .img-wrap img {
       filter: brightness(1.1);
     }
-    
+
     /* Soft glowing number behind the image */
     .gallery-index {
       position: absolute;
@@ -537,40 +537,40 @@
       /* Disable custom cursor entirely on mobile to restore native touch behavior */
       .cursor, .cursor-dot { display: none !important; }
       *, a, button, .interactive { cursor: auto !important; }
-      
+
       /* Optimize Album Layout */
       .album-grid { flex-direction: column; gap: 8vw; }
       .album-card { height: 45vh; width: 100%; }
       .album-title { font-size: 2.2rem; }
-      
+
       /* Optimize Gallery Grid for iPhone */
       .modal-gallery { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); padding: 4vw; gap: 2vw; }
       .modal-gallery img { height: 160px; }
       .modal-header { padding: 1.5rem 5vw; }
       .modal-title { font-size: 1.5rem; }
-      
+
       /* Navigation & Typography */
       nav { padding: 1.5rem 5vw; }
       .nav-center { display: none; }
       .massive-title { font-size: 15vw; }
       .statement-title { font-size: 7vw; line-height: 1.3; }
-      
+
       .letter { padding: 10vh 8vw; }
       .letter-p { font-size: 1.1rem; margin-bottom: 1.5rem; }
       .letter-highlight { font-size: 1.8rem; margin: 2rem 0; }
       .signature { font-size: 2rem; margin-top: 2rem; }
-      
+
       /* Gallery Carousel adjustments */
       .gallery-container { height: 80vh; }
-      .img-wrap { 
-        height: 50vh; 
-        width: calc(50vh * 0.75); 
+      .img-wrap {
+        height: 50vh;
+        width: calc(50vh * 0.75);
         max-width: none; /* remove max-width to preserve perfect 3:4 ratio */
       }
       .gallery-track { padding: 0 5vw; gap: 8vw; height: 60vh; margin-top: 10vh; }
       .gallery-index { font-size: 12rem; }
       .caption { font-size: 1rem; max-width: 80vw; }
-      
+
       /* Floating audio button */
       .floating-audio {
         bottom: 2rem;
@@ -610,7 +610,7 @@
       <source src="video1.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
-    
+
     <div class="hero-content">
       <h1 class="massive-title font-serif">
         <div class="hero-title-wrap"><span class="hero-title-line">To My</span></div>
@@ -638,7 +638,7 @@
     </div>
 
     <div class="gallery-track" id="gallery-track">
-      
+
       <!-- Photo 1 -->
       <div class="gallery-item interactive">
         <div class="gallery-index">01</div>
@@ -688,15 +688,15 @@
 
     <div class="letter-container">
       <h2 class="statement-title font-serif letter-title gs-reveal-text">My Dearest,</h2>
-      
+
       <p class="letter-p gs-fade-up">There are moments when I look at you and I am completely overwhelmed by how lucky I am. Not lucky in a fleeting way — but <strong>deeply, permanently, irrevocably lucky</strong> to share this life with you.</p>
-      
+
       <p class="letter-p gs-fade-up">You make ordinary days feel extraordinary. A cup of tea together becomes a memory. A quiet evening becomes a treasure. You have this rare gift of making everything <strong>feel meaningful</strong>.</p>
-      
+
       <p class="letter-p gs-fade-up">Through every high and every hard day, you have been my constant. My favourite person, my loudest cheerleader, my softest place to fall. I don't just love you — <strong>I choose you</strong>, every single day.</p>
-      
+
       <h3 class="statement-title font-serif letter-highlight gs-reveal-text">You are the greatest thing that ever happened to me.</h3>
-      
+
       <div class="statement-title font-serif signature gs-reveal-text">Forever yours.</div>
     </div>
   </section>
@@ -708,7 +708,7 @@
       <div class="header-line"></div>
       <div class="label-text">Our Albums</div>
     </div>
-    
+
     <div class="album-grid">
       <div class="album-card interactive" onclick="openAlbum('engagement')">
          <img src="" id="eng-cover" class="album-cover" alt="Engagement">
@@ -759,7 +759,7 @@
         document.getElementById('eng-cover').src = 'Engagement/' + engagementPhotos[0];
         document.getElementById('eng-count').innerText = engagementPhotos.length + ' Photos';
       }
-      
+
       if (typeof kankuPhotos !== 'undefined' && kankuPhotos.length > 0) {
         // Try to find a JPG for the cover, since HEIC won't render natively on Windows Chrome
         let coverPhoto = kankuPhotos[0];
@@ -861,7 +861,7 @@
         stagger: 0.15,
         ease: "power3.out"
       });
-      
+
       gsap.to('.hero-bg', {
         scale: 1,
         duration: 3,
@@ -872,10 +872,10 @@
     // --- Horizontal Gallery Scroll & Parallax ---
     const galleryContainer = document.querySelector('.gallery-container');
     const galleryTrack = document.querySelector('.gallery-track');
-    
+
     if (galleryContainer && galleryTrack) {
       const getScrollAmount = () => galleryTrack.scrollWidth - window.innerWidth;
-      
+
       const tween = gsap.to(galleryTrack, {
         x: () => -getScrollAmount(),
         ease: "none",
@@ -910,12 +910,12 @@
       // Split text into words, keeping HTML tags intact if possible
       // A simple split by space works for basic text, but we have <em> tags.
       // For a clean fade up on the entire block:
-      gsap.fromTo(text, 
+      gsap.fromTo(text,
         { opacity: 0, y: 40 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.5, 
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
           ease: "power3.out",
           scrollTrigger: {
             trigger: text,
@@ -927,12 +927,12 @@
 
     // Fade Up Elements (Captions, Paragraphs)
     gsap.utils.toArray('.gs-fade-up').forEach(el => {
-      gsap.fromTo(el, 
+      gsap.fromTo(el,
         { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1.5, 
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
@@ -971,22 +971,22 @@
 
     function loadMorePhotos() {
       if (currentIdx >= currentPhotos.length) return;
-      
+
       const gallery = document.getElementById('modal-gallery');
       const fragment = document.createDocumentFragment();
-      
+
       const endIdx = Math.min(currentIdx + CHUNK_SIZE, currentPhotos.length);
       for (let i = currentIdx; i < endIdx; i++) {
         const img = document.createElement('img');
         img.src = currentFolder + currentPhotos[i];
-        img.loading = 'lazy'; 
+        img.loading = 'lazy';
         img.decoding = 'async'; // Super critical: Offloads decoding to a background thread!
         fragment.appendChild(img);
       }
-      
+
       const trigger = document.getElementById('scroll-trigger');
       gallery.insertBefore(fragment, trigger);
-      
+
       currentIdx = endIdx;
     }
 
@@ -1000,10 +1000,10 @@
       const modal = document.getElementById('album-modal');
       const gallery = document.getElementById('modal-gallery');
       const title = document.getElementById('modal-title');
-      
+
       // Clear existing and set up the intersection observer trigger
       gallery.innerHTML = '<div id="scroll-trigger" style="height: 1px; width: 100%; grid-column: 1 / -1;"></div>';
-      
+
       if(type === 'engagement') {
         title.innerText = 'Engagement';
         currentPhotos = typeof engagementPhotos !== 'undefined' ? engagementPhotos : [];
@@ -1013,13 +1013,13 @@
         currentPhotos = typeof kankuPhotos !== 'undefined' ? kankuPhotos : [];
         currentFolder = 'Kanku Pagla/';
       }
-      
+
       currentIdx = 0;
       loadMorePhotos(); // Load first chunk immediately
-      
+
       const trigger = document.getElementById('scroll-trigger');
       observer.observe(trigger);
-      
+
       modal.classList.add('active');
       document.body.style.overflow = 'hidden'; // Lock background scrolling
     }
