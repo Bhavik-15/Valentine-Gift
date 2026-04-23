@@ -1,33 +1,26 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For You, My Love ❤️</title>
 
-  <!-- Premium Romantic Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Variables & Reset */
     :root {
-      /* Deep romantic palette */
       --bg-dark: #120a0b;
       --bg-light: #1a0d0f;
       --text-white: #fdf5f2;
       --text-muted: rgba(253, 245, 242, 0.6);
-      --accent: #d4a373; /* soft rose gold */
-      --accent-rose: #8c2727; /* deep velvet red */
+      --accent: #d4a373;
+      --accent-rose: #8c2727;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      cursor: none; /* Hide default cursor */
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
 
     body {
       background-color: var(--bg-dark);
@@ -35,521 +28,425 @@
       font-family: 'Lato', sans-serif;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Elegant Custom Cursor */
     .cursor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(212, 163, 115, 0.5); /* gold border */
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 999999;
+      position: fixed; top: 0; left: 0; width: 40px; height: 40px;
+      border: 1px solid rgba(212, 163, 115, 0.5); border-radius: 50%;
+      transform: translate(-50%, -50%); pointer-events: none; z-index: 999999;
       transition: width 0.4s ease, height 0.4s ease, background-color 0.4s ease;
     }
     .cursor-dot {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 999999;
+      position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+      background: var(--accent); border-radius: 50%;
+      transform: translate(-50%, -50%); pointer-events: none; z-index: 999999;
     }
+    a, button, .interactive { cursor: none; }
 
-    a, button, .interactive {
-      cursor: none;
-    }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-stopped { overflow: hidden; }
 
-    /* Lenis Smooth Scroll Setup */
-    html.lenis, html.lenis body {
-      height: auto;
-    }
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-    .lenis.lenis-stopped {
-      overflow: hidden;
-    }
-
-    /* Typography Classes */
-    .font-serif {
-      font-family: 'Playfair Display', serif;
-    }
+    .font-serif { font-family: 'Playfair Display', serif; }
     .massive-title {
       font-size: clamp(3.5rem, 10vw, 10rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
+      font-weight: 400; line-height: 1.1; letter-spacing: -0.01em;
     }
-    .massive-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .massive-title em { font-style: italic; color: var(--accent); }
     .statement-title {
       font-size: clamp(2.5rem, 5vw, 5rem);
-      font-weight: 400;
-      line-height: 1.3;
-      letter-spacing: 0.02em;
+      font-weight: 400; line-height: 1.3; letter-spacing: 0.02em;
     }
-    .statement-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .statement-title em { font-style: italic; color: var(--accent); }
     .label-text {
-      font-family: 'Lato', sans-serif;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      color: var(--text-muted);
-      font-weight: 400;
+      font-family: 'Lato', sans-serif; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.3em;
+      color: var(--text-muted); font-weight: 400;
     }
 
-    /* Navigation / Header */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 2.5rem 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; width: 100%;
+      padding: 2.5rem 5vw; display: flex;
+      justify-content: space-between; align-items: center; z-index: 100;
     }
 
-    /* Floating Audio Player */
     .floating-audio {
-      position: fixed;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(26, 13, 15, 0.4);
-      backdrop-filter: blur(16px);
+      position: fixed; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      background: rgba(26, 13, 15, 0.4); backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(212, 163, 115, 0.2);
-      padding: 12px 28px;
-      border-radius: 100px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      z-index: 100;
-      transition: all 0.4s ease;
+      padding: 12px 28px; border-radius: 100px;
+      display: flex; align-items: center; gap: 14px;
+      z-index: 100; transition: all 0.4s ease;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    .floating-audio:hover {
-      background: rgba(26, 13, 15, 0.7);
-      border-color: var(--accent);
-    }
+    .floating-audio:hover { background: rgba(26, 13, 15, 0.7); border-color: var(--accent); }
     .play-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--bg-dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      padding-left: 2px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--accent); color: var(--bg-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; padding-left: 2px;
     }
 
-    /* Hero Section */
-    .hero {
+    /* Upload Button */
+    .upload-trigger {
+      position: fixed; bottom: 2.5rem; right: 2.5rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(26,13,15,0.6); backdrop-filter: blur(12px);
+      border: 1px solid rgba(212,163,115,0.25);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 200; transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .upload-trigger:hover { border-color: var(--accent); background: rgba(212,163,115,0.1); }
+    .upload-trigger svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+
+    /* Upload Panel */
+    .upload-panel {
+      position: fixed; inset: 0; z-index: 300000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    .upload-panel.active { opacity: 1; pointer-events: all; }
+    .upload-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(18,10,11,0.85); backdrop-filter: blur(8px);
+    }
+    .upload-box {
+      position: relative; z-index: 1;
+      background: #1a0d0f;
+      border: 1px solid rgba(212,163,115,0.25);
+      border-radius: 16px;
+      padding: 3rem;
+      width: min(520px, 92vw);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+    .upload-panel.active .upload-box { transform: translateY(0); }
+    .upload-box-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .upload-box-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--accent); }
+    .upload-close-btn {
+      background: none; border: none; color: var(--text-muted);
+      font-size: 1.5rem; line-height: 1; transition: color 0.2s;
+    }
+    .upload-close-btn:hover { color: var(--text-white); }
+
+    /* Auth step */
+    .upload-step { display: none; }
+    .upload-step.visible { display: block; }
+
+    .upload-field-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em;
+      color: var(--text-muted); margin-bottom: 0.6rem; display: block;
+    }
+    .upload-input {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,163,115,0.2);
+      border-radius: 8px; padding: 0.85rem 1rem;
+      color: var(--text-white); font-family: 'Lato', sans-serif; font-size: 0.95rem;
+      transition: border-color 0.3s; outline: none; margin-bottom: 1.5rem;
+    }
+    .upload-input:focus { border-color: var(--accent); }
+    .upload-select {
+      width: 100%; background: rgba(18,10,11,0.9);
+      border: 1px solid rgba(212,163,115,0.2);
+      border-radius: 8px; padding: 0.85rem 1rem;
+      color: var(--text-white); font-family: 'Lato', sans-serif; font-size: 0.95rem;
+      transition: border-color 0.3s; outline: none; margin-bottom: 1.5rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4a373' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center;
+    }
+    .upload-select:focus { border-color: var(--accent); }
+
+    .upload-drop-zone {
+      border: 1px dashed rgba(212,163,115,0.3);
+      border-radius: 10px; padding: 2.5rem 1rem;
+      text-align: center; margin-bottom: 1.5rem;
+      cursor: pointer; transition: all 0.3s;
+      background: rgba(255,255,255,0.02);
       position: relative;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+    }
+    .upload-drop-zone:hover, .upload-drop-zone.drag-over {
+      border-color: var(--accent); background: rgba(212,163,115,0.05);
+    }
+    .upload-drop-zone input[type="file"] {
+      position: absolute; inset: 0; opacity: 0;
+      cursor: pointer; width: 100%; height: 100%;
+    }
+    .drop-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .drop-label { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+    .drop-label span { color: var(--accent); }
+
+    .upload-preview {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 1.5rem; max-height: 150px; overflow-y: auto;
+    }
+    .preview-thumb {
+      width: 60px; height: 60px; border-radius: 6px;
+      object-fit: cover; border: 1px solid rgba(212,163,115,0.2);
+    }
+    .preview-count {
+      color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;
+    }
+
+    .upload-btn {
+      width: 100%; padding: 1rem;
+      background: var(--accent); color: var(--bg-dark);
+      border: none; border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-size: 0.9rem;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.3s; cursor: pointer;
+    }
+    .upload-btn:hover:not(:disabled) { background: #e6b882; }
+    .upload-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .upload-error {
+      color: #e07070; font-size: 0.85rem;
+      margin-top: -1rem; margin-bottom: 1rem; display: none;
+    }
+    .upload-error.visible { display: block; }
+
+    .upload-progress-bar-wrap {
+      height: 2px; background: rgba(212,163,115,0.15);
+      border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden;
+      display: none;
+    }
+    .upload-progress-bar-wrap.visible { display: block; }
+    .upload-progress-bar {
+      height: 100%; background: var(--accent);
+      width: 0%; transition: width 0.3s ease; border-radius: 2px;
+    }
+    .upload-status-text {
+      font-size: 0.8rem; color: var(--text-muted);
+      text-align: center; margin-bottom: 1rem; min-height: 1.2em;
+    }
+    .upload-success {
+      text-align: center; padding: 1rem 0;
+    }
+    .upload-success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .upload-success-msg {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      color: var(--accent); font-size: 1.3rem; margin-bottom: 0.5rem;
+    }
+    .upload-success-sub { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* Hero */
+    .hero {
+      position: relative; height: 100vh; width: 100%;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; overflow: hidden;
     }
     .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      transform: scale(1.05); /* Slight scale for parallax */
-      opacity: 0.8;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0; transform: scale(1.05); opacity: 0.8;
     }
     .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
       background: linear-gradient(to bottom, rgba(18,10,11,0.4) 0%, rgba(18,10,11,0.9) 100%);
       z-index: 1;
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      width: 100%;
-      padding: 0 2vw;
-    }
-    .hero-title-wrap {
-      overflow: hidden;
-      padding-bottom: 10px;
-    }
-    .hero-title-line {
-      display: block;
-      transform: translateY(110%);
-    }
+    .hero-content { position: relative; z-index: 2; text-align: center; width: 100%; padding: 0 2vw; }
+    .hero-title-wrap { overflow: hidden; padding-bottom: 10px; }
+    .hero-title-line { display: block; transform: translateY(110%); }
 
-    /* Statement Section */
+    /* Statement */
     .statement {
-      padding: 25vh 5vw;
-      background: var(--bg-dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      padding: 25vh 5vw; background: var(--bg-dark);
+      display: flex; justify-content: center; align-items: center; text-align: center;
     }
-    .statement-content {
-      max-width: 1000px;
-    }
+    .statement-content { max-width: 1000px; }
 
-    /* Gallery Section */
+    /* Gallery */
     .gallery-container {
-      height: 100vh;
-      width: 100vw;
-      background: var(--bg-light);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      position: relative;
+      height: 100vh; width: 100vw; background: var(--bg-light);
+      overflow: hidden; display: flex; align-items: center; position: relative;
     }
-
-    /* Pinned Header overlaid on top */
     .section-header {
-      position: absolute;
-      top: 10vh;
-      left: 5vw;
-      width: 90vw;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
+      position: absolute; top: 10vh; left: 5vw; width: 90vw;
+      z-index: 10; display: flex; align-items: center; gap: 2rem;
     }
-    .header-line {
-      flex-grow: 1;
-      height: 1px;
-      background: rgba(212, 163, 115, 0.2);
-    }
-
+    .header-line { flex-grow: 1; height: 1px; background: rgba(212, 163, 115, 0.2); }
     .gallery-track {
-      display: flex;
-      height: 75vh;
-      padding: 0 10vw;
-      gap: 12vw;
-      align-items: center;
-      width: max-content;
-      margin-top: 5vh;
+      display: flex; height: 75vh; padding: 0 10vw; gap: 12vw;
+      align-items: center; width: max-content; margin-top: 5vh;
     }
     .gallery-item {
-      position: relative;
-      /* Define width dynamically based on portrait aspect ratio of img-wrap */
-      height: 100%;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      position: relative; height: 100%; flex-shrink: 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
     }
-
-    /* Elegant Photo Frame */
     .img-wrap {
-      height: 65vh;
-      width: calc(65vh * 0.75); /* Ensures a 3:4 portrait aspect ratio */
-      max-width: 80vw;
-      position: relative;
-      overflow: hidden;
-      background: #000;
-      z-index: 1;
-      border-radius: 6px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      height: 65vh; width: calc(65vh * 0.75); max-width: 80vw;
+      position: relative; overflow: hidden; background: #000;
+      z-index: 1; border-radius: 6px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
     }
     .img-wrap img {
-      position: absolute;
-      top: 0;
-      left: -10%;
-      width: 120%;
-      height: 100%;
-      object-fit: cover;
-      /* By setting object-position slightly higher, we save the heads from cropping */
-      object-position: center 20%;
+      position: absolute; top: 0; left: -10%; width: 120%; height: 100%;
+      object-fit: cover; object-position: center 20%;
       transition: filter 0.8s ease, transform 0.8s ease;
     }
-    .gallery-item:hover .img-wrap img {
-      filter: brightness(1.1);
-    }
-
-    /* Soft glowing number behind the image */
+    .gallery-item:hover .img-wrap img { filter: brightness(1.1); }
     .gallery-index {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: clamp(8rem, 25vw, 25rem);
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      color: rgba(212, 163, 115, 0.03); /* Faint gold */
-      z-index: 0;
-      pointer-events: none;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: clamp(8rem, 25vw, 25rem); font-family: 'Playfair Display', serif;
+      font-style: italic; color: rgba(212, 163, 115, 0.03);
+      z-index: 0; pointer-events: none;
     }
-
     .caption {
-      margin-top: 3vh;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.2rem, 2vw, 1.8rem);
-      color: var(--text-white);
-      text-align: center;
-      letter-spacing: 0.02em;
-      z-index: 2;
+      margin-top: 3vh; font-family: 'Playfair Display', serif;
+      font-style: italic; font-weight: 400;
+      font-size: clamp(1.2rem, 2vw, 1.8rem); color: var(--text-white);
+      text-align: center; letter-spacing: 0.02em; z-index: 2;
       max-width: calc(65vh * 0.9);
     }
 
-    /* Love Letter Section */
-    .letter {
-      padding: 20vh 5vw;
-      background: var(--bg-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .letter-container {
-      max-width: 700px;
-      width: 100%;
-      margin-top: 10vh;
-    }
-    .letter-title {
-      margin-bottom: 12vh;
-      text-align: center;
-      color: var(--accent);
-    }
-    .letter-p {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      line-height: 2;
-      color: var(--text-muted);
-      margin-bottom: 3.5rem;
-      font-weight: 300;
-    }
-    .letter-p strong {
-      color: var(--text-white);
-      font-weight: 400;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: 1.1em;
-    }
-    .letter-highlight {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.4;
-      color: var(--text-white);
-      margin: 10vh 0;
-      text-align: center;
-    }
-    .signature {
-      text-align: right;
-      margin-top: 10vh;
-      color: var(--accent);
-    }
+    /* Letter */
+    .letter { padding: 20vh 5vw; background: var(--bg-dark); display: flex; flex-direction: column; align-items: center; }
+    .letter-container { max-width: 700px; width: 100%; margin-top: 10vh; }
+    .letter-title { margin-bottom: 12vh; text-align: center; color: var(--accent); }
+    .letter-p { font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 2; color: var(--text-muted); margin-bottom: 3.5rem; font-weight: 300; }
+    .letter-p strong { color: var(--text-white); font-weight: 400; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1em; }
+    .letter-highlight { font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.4; color: var(--text-white); margin: 10vh 0; text-align: center; }
+    .signature { text-align: right; margin-top: 10vh; color: var(--accent); }
 
-    /* Preloader */
-    #preloader {
-      position: fixed;
-      inset: 0;
-      background: var(--bg-dark);
-      z-index: 99999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: var(--accent);
-    }
-    .loader-text {
-      font-size: 3rem;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-    .loader-bar {
-      width: 200px;
-      height: 1px;
-      background: rgba(212, 163, 115, 0.2);
-      position: relative;
-    }
-    .loader-progress {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 0%;
-      background: var(--accent);
-    }
-
-    /* Subtle petal overlay effect */
-    .petal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 50;
-      background-image: radial-gradient(circle at 50% 50%, transparent 0%, rgba(18,10,11,0.2) 100%);
-    }
-
-    /* Albums Section */
+    /* ──── Albums Section ──── */
     .albums {
-      padding: 20vh 5vw;
-      background: var(--bg-light);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
-    .album-grid {
-      display: flex;
-      gap: 5vw;
-      width: 100%;
-      max-width: 1200px;
-      margin-top: 10vh;
-    }
-    .album-card {
-      flex: 1;
-      height: 60vh;
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-    .album-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s ease;
-    }
-    .album-card:hover .album-cover {
-      transform: scale(1.05);
-    }
-    .album-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(18,10,11,0.9) 0%, rgba(18,10,11,0.2) 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 3rem;
-      pointer-events: none;
-    }
-    .album-title {
-      font-size: 3rem;
-      font-style: italic;
-      color: var(--text-white);
-      margin-bottom: 0.5rem;
-    }
-    .album-count {
-      color: var(--accent);
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      padding: 20vh 5vw; background: var(--bg-light);
+      display: flex; flex-direction: column; align-items: center; position: relative;
     }
 
-    /* Fullscreen Album Modal */
+    /* Chapter grid: 2 columns × 2 rows */
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3vw;
+      width: 100%; max-width: 1200px; margin-top: 10vh;
+    }
+
+    .album-card {
+      position: relative; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      cursor: pointer; transition: transform 0.5s ease;
+      aspect-ratio: 3/4;
+    }
+    .album-card:hover { transform: translateY(-6px); }
+
+    .album-cover {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s ease;
+      display: block;
+    }
+    .album-card:hover .album-cover { transform: scale(1.05); }
+
+    /* Placeholder gradient when no photo yet */
+    .album-cover-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1a0d0f 0%, #2a1215 50%, #1a0d0f 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .album-cover-placeholder-icon {
+      font-size: 3rem; opacity: 0.2;
+    }
+
+    .album-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(18,10,11,0.95) 0%, rgba(18,10,11,0.1) 60%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 2rem 2rem 2.2rem;
+    }
+    .chapter-label {
+      font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em;
+      color: var(--accent); opacity: 0.8; margin-bottom: 0.4rem;
+    }
+    .album-title { font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-style: italic; color: var(--text-white); margin-bottom: 0.4rem; }
+    .album-count { color: var(--accent); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; }
+
+    /* Shimmer while loading */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .album-card.loading .album-cover-placeholder {
+      background: linear-gradient(90deg, #1a0d0f 25%, #2a1215 50%, #1a0d0f 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* Modal */
     .album-modal {
-      position: fixed;
-      inset: 0;
-      background: var(--bg-dark);
-      z-index: 100000;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s ease;
+      position: fixed; inset: 0; background: var(--bg-dark);
+      z-index: 100000; display: flex; flex-direction: column;
+      opacity: 0; pointer-events: none; transition: opacity 0.6s ease;
       overflow-y: auto;
     }
-    .album-modal.active {
-      opacity: 1;
-      pointer-events: all;
-    }
+    .album-modal.active { opacity: 1; pointer-events: all; }
     .modal-header {
-      padding: 2rem 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(18,10,11,0.9);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 2rem 5vw; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(18,10,11,0.9); position: sticky; top: 0; z-index: 10;
       backdrop-filter: blur(10px);
     }
-    .modal-title {
-      font-size: 2rem;
-      font-style: italic;
-      color: var(--accent);
-    }
-    .close-btn {
-      background: none;
-      border: none;
-      color: var(--text-white);
-      font-size: 2rem;
-    }
+    .modal-header-left { display: flex; flex-direction: column; gap: 0.2rem; }
+    .modal-chapter-tag { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--accent); }
+    .modal-title { font-size: 2rem; font-style: italic; color: var(--text-white); }
+    .close-btn { background: none; border: none; color: var(--text-white); font-size: 2rem; }
     .modal-gallery {
-      padding: 5vw;
-      display: grid;
+      padding: 5vw; display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.5rem;
     }
     .modal-gallery img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 4px;
-      background: #1a0d0f;
+      width: 100%; height: 300px; object-fit: cover;
+      border-radius: 6px; background: #1a0d0f;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
+    .modal-gallery img:hover { transform: scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
     .heic-warning {
-      text-align: center;
-      padding: 2rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      text-align: center; padding: 1rem 2rem; padding-top: 0;
+      color: var(--text-muted); font-size: 0.8rem;
+    }
+    .modal-empty {
+      grid-column: 1 / -1; text-align: center;
+      padding: 8vh 2rem; color: var(--text-muted);
+    }
+    .modal-empty-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+    .modal-empty-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--text-muted); }
+
+    /* Preloader */
+    #preloader {
+      position: fixed; inset: 0; background: var(--bg-dark);
+      z-index: 99999; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; color: var(--accent);
+    }
+    .loader-text { font-size: 3rem; font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 1rem; }
+    .loader-bar { width: 200px; height: 1px; background: rgba(212, 163, 115, 0.2); position: relative; }
+    .loader-progress { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--accent); }
+
+    .petal-overlay {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none; z-index: 50;
+      background-image: radial-gradient(circle at 50% 50%, transparent 0%, rgba(18,10,11,0.2) 100%);
     }
 
-    /* Mobile adjustments */
+    /* ──── Mobile ──── */
     @media (max-width: 768px) {
-      /* Disable custom cursor entirely on mobile to restore native touch behavior */
       .cursor, .cursor-dot { display: none !important; }
       *, a, button, .interactive { cursor: auto !important; }
 
-      /* Optimize Album Layout */
-      .album-grid { flex-direction: column; gap: 8vw; }
-      .album-card { height: 45vh; width: 100%; }
-      .album-title { font-size: 2.2rem; }
+      .album-grid { grid-template-columns: 1fr 1fr; gap: 4vw; }
+      .album-overlay { padding: 1.2rem 1rem 1.4rem; }
+      .album-title { font-size: 1.1rem; }
+      .chapter-label { font-size: 0.55rem; }
+      .album-count { font-size: 0.65rem; }
 
-      /* Optimize Gallery Grid for iPhone */
       .modal-gallery { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); padding: 4vw; gap: 2vw; }
       .modal-gallery img { height: 160px; }
       .modal-header { padding: 1.5rem 5vw; }
       .modal-title { font-size: 1.5rem; }
 
-      /* Navigation & Typography */
       nav { padding: 1.5rem 5vw; }
       .nav-center { display: none; }
       .massive-title { font-size: 15vw; }
@@ -560,57 +457,44 @@
       .letter-highlight { font-size: 1.8rem; margin: 2rem 0; }
       .signature { font-size: 2rem; margin-top: 2rem; }
 
-      /* Gallery Carousel adjustments */
       .gallery-container { height: 80vh; }
-      .img-wrap {
-        height: 50vh;
-        width: calc(50vh * 0.75);
-        max-width: none; /* remove max-width to preserve perfect 3:4 ratio */
-      }
+      .img-wrap { height: 50vh; width: calc(50vh * 0.75); max-width: none; }
       .gallery-track { padding: 0 5vw; gap: 8vw; height: 60vh; margin-top: 10vh; }
       .gallery-index { font-size: 12rem; }
       .caption { font-size: 1rem; max-width: 80vw; }
 
-      /* Floating audio button */
-      .floating-audio {
-        bottom: 2rem;
-        right: 2rem;
-        padding: 0.8rem 1.2rem;
-        z-index: 99999;
-      }
+      .floating-audio { bottom: 2rem; padding: 10px 20px; }
+      .upload-trigger { bottom: 2rem; right: 2rem; }
+
+      .upload-box { padding: 2rem 1.5rem; }
     }
   </style>
+
 </head>
 <body>
 
-  <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-dot" id="cursor-dot"></div>
-
-  <!-- Ambient Overlay -->
   <div class="petal-overlay"></div>
 
-  <!-- Preloader -->
   <div id="preloader">
     <div class="loader-text font-serif" id="loader-perc">0%</div>
     <div class="loader-bar"><div class="loader-progress" id="loader-bar"></div></div>
   </div>
 
-  <!-- Navigation -->
   <nav>
     <div class="label-text">A Gift</div>
     <div class="label-text nav-center">Est. Forever</div>
     <div class="label-text">From My Heart</div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
+
   <section class="hero">
-    <!-- Using the provided video as full screen cinematic background -->
     <video class="hero-bg" id="heroVideo" autoplay loop muted playsinline>
       <source src="video1.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
-
     <div class="hero-content">
       <h1 class="massive-title font-serif">
         <div class="hero-title-wrap"><span class="hero-title-line">To My</span></div>
@@ -619,7 +503,8 @@
     </div>
   </section>
 
-  <!-- Statement Section -->
+  <!-- Statement -->
+
   <section class="statement">
     <div class="statement-content">
       <h2 class="statement-title font-serif gs-reveal-text">
@@ -628,408 +513,665 @@
     </div>
   </section>
 
-  <!-- Premium Pinned Horizontal Gallery -->
+  <!-- Horizontal Gallery -->
+
   <section class="gallery-container" id="horizontal-gallery">
-    <!-- Pinned Header overlaid on top -->
     <div class="section-header">
       <div class="label-text">01</div>
       <div class="header-line"></div>
       <div class="label-text">Our Memories</div>
     </div>
-
     <div class="gallery-track" id="gallery-track">
-
-      <!-- Photo 1 -->
       <div class="gallery-item interactive">
         <div class="gallery-index">01</div>
-        <div class="img-wrap">
-          <img src="photo1.jpg" alt="Memory" class="h-parallax-img">
-        </div>
+        <div class="img-wrap"><img src="photo1.jpg" alt="Memory" class="h-parallax-img"></div>
         <div class="caption">Every moment with you feels like a dream</div>
       </div>
-
-      <!-- Photo 2 -->
       <div class="gallery-item interactive">
         <div class="gallery-index">02</div>
-        <div class="img-wrap">
-          <img src="photo2.jpg" alt="Memory" class="h-parallax-img">
-        </div>
+        <div class="img-wrap"><img src="photo2.jpg" alt="Memory" class="h-parallax-img"></div>
         <div class="caption">Your smile is my favourite view</div>
       </div>
-
-      <!-- Photo 3 -->
       <div class="gallery-item interactive">
         <div class="gallery-index">03</div>
-        <div class="img-wrap">
-          <img src="photo3.jpg" alt="Memory" class="h-parallax-img">
-        </div>
+        <div class="img-wrap"><img src="photo3.jpg" alt="Memory" class="h-parallax-img"></div>
         <div class="caption">My forever home</div>
       </div>
-
-      <!-- Photo 4 -->
       <div class="gallery-item interactive">
         <div class="gallery-index">04</div>
-        <div class="img-wrap">
-          <img src="photo4.jpg" alt="Memory" class="h-parallax-img">
-        </div>
+        <div class="img-wrap"><img src="photo4.jpg" alt="Memory" class="h-parallax-img"></div>
         <div class="caption">The most beautiful thing</div>
       </div>
-
     </div>
   </section>
 
-  <!-- Love Letter Section -->
+  <!-- Love Letter -->
+
   <section class="letter">
-    <div class="section-header" style="width: 100%; position: relative; top: 0; left: 0;">
+    <div class="section-header" style="width:100%;position:relative;top:0;left:0;">
       <div class="label-text">02</div>
       <div class="header-line"></div>
       <div class="label-text">My Letter</div>
     </div>
-
     <div class="letter-container">
       <h2 class="statement-title font-serif letter-title gs-reveal-text">My Dearest,</h2>
-
       <p class="letter-p gs-fade-up">There are moments when I look at you and I am completely overwhelmed by how lucky I am. Not lucky in a fleeting way — but <strong>deeply, permanently, irrevocably lucky</strong> to share this life with you.</p>
-
       <p class="letter-p gs-fade-up">You make ordinary days feel extraordinary. A cup of tea together becomes a memory. A quiet evening becomes a treasure. You have this rare gift of making everything <strong>feel meaningful</strong>.</p>
-
       <p class="letter-p gs-fade-up">Through every high and every hard day, you have been my constant. My favourite person, my loudest cheerleader, my softest place to fall. I don't just love you — <strong>I choose you</strong>, every single day.</p>
-
       <h3 class="statement-title font-serif letter-highlight gs-reveal-text">You are the greatest thing that ever happened to me.</h3>
-
       <div class="statement-title font-serif signature gs-reveal-text">Forever yours.</div>
     </div>
   </section>
 
-  <!-- Complete Albums Section -->
+  <!-- Albums / Chapters -->
+
   <section class="albums">
-    <div class="section-header" style="width: 100%; position: relative;">
+    <div class="section-header" style="width:100%;position:relative;">
       <div class="label-text">03</div>
       <div class="header-line"></div>
-      <div class="label-text">Our Albums</div>
+      <div class="label-text">Our Chapters</div>
     </div>
 
-    <div class="album-grid">
-      <div class="album-card interactive" onclick="openAlbum('engagement')">
-         <img src="" id="eng-cover" class="album-cover" alt="Engagement">
-         <div class="album-overlay">
-            <h3 class="album-title font-serif">Engagement</h3>
-            <p class="album-count" id="eng-count">0 Photos</p>
-         </div>
-      </div>
-      <div class="album-card interactive" onclick="openAlbum('kanku')">
-         <img src="" id="kanku-cover" class="album-cover" alt="Kanku Pagla">
-         <div class="album-overlay">
-            <h3 class="album-title font-serif">Kanku Pagla</h3>
-            <p class="album-count" id="kanku-count">0 Photos</p>
-         </div>
-      </div>
+```
+<div class="album-grid">
+  <!-- Chapter 1 -->
+  <div class="album-card interactive" id="card-thol" onclick="openAlbum('thol')">
+    <div class="album-cover-placeholder" id="cover-thol">
+      <div class="album-cover-placeholder-icon">🏞️</div>
     </div>
-  </section>
-
-  <!-- Fullscreen Modal for Albums -->
-  <div id="album-modal" class="album-modal" data-lenis-prevent>
-    <div class="modal-header">
-       <h2 id="modal-title" class="modal-title font-serif">Album</h2>
-       <button class="close-btn interactive" onclick="closeAlbum()">✕</button>
-    </div>
-    <div class="heic-warning font-serif">Note: Some high-quality photos (.HEIC format) are best viewed natively on Apple devices (iPhone/Mac).</div>
-    <div class="modal-gallery" id="modal-gallery">
-       <!-- Photos injected here -->
+    <img src="" id="img-thol" class="album-cover" alt="Thol Diaries" style="display:none; position:absolute;inset:0;width:100%;height:100%;">
+    <div class="album-overlay">
+      <div class="chapter-label">Chapter 1</div>
+      <h3 class="album-title font-serif">Thol Diaries</h3>
+      <p class="album-count" id="count-thol">0 Photos</p>
     </div>
   </div>
 
-  <!-- Floating Audio Player -->
+  <!-- Chapter 2 -->
+  <div class="album-card interactive" id="card-engagement" onclick="openAlbum('engagement')">
+    <div class="album-cover-placeholder" id="cover-engagement">
+      <div class="album-cover-placeholder-icon">💍</div>
+    </div>
+    <img src="" id="img-engagement" class="album-cover" alt="Engagement Diaries" style="display:none; position:absolute;inset:0;width:100%;height:100%;">
+    <div class="album-overlay">
+      <div class="chapter-label">Chapter 2</div>
+      <h3 class="album-title font-serif">Engagement Diaries</h3>
+      <p class="album-count" id="count-engagement">0 Photos</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3 -->
+  <div class="album-card interactive" id="card-dwarka" onclick="openAlbum('dwarka')">
+    <div class="album-cover-placeholder" id="cover-dwarka">
+      <div class="album-cover-placeholder-icon">🌊</div>
+    </div>
+    <img src="" id="img-dwarka" class="album-cover" alt="Dwarka Diaries" style="display:none; position:absolute;inset:0;width:100%;height:100%;">
+    <div class="album-overlay">
+      <div class="chapter-label">Chapter 3</div>
+      <h3 class="album-title font-serif">Dwarka Diaries</h3>
+      <p class="album-count" id="count-dwarka">0 Photos</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4 -->
+  <div class="album-card interactive" id="card-kanku" onclick="openAlbum('kanku')">
+    <div class="album-cover-placeholder" id="cover-kanku">
+      <div class="album-cover-placeholder-icon">🌸</div>
+    </div>
+    <img src="" id="img-kanku" class="album-cover" alt="Kanku Pagla" style="display:none; position:absolute;inset:0;width:100%;height:100%;">
+    <div class="album-overlay">
+      <div class="chapter-label">Chapter 4</div>
+      <h3 class="album-title font-serif">Kanku Pagla</h3>
+      <p class="album-count" id="count-kanku">0 Photos</p>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- Album Modal -->
+
+  <div id="album-modal" class="album-modal" data-lenis-prevent>
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-chapter-tag" id="modal-chapter-tag">Chapter 1</div>
+        <h2 id="modal-title" class="modal-title font-serif">Album</h2>
+      </div>
+      <button class="close-btn interactive" onclick="closeAlbum()">✕</button>
+    </div>
+    <div class="heic-warning font-serif">Note: Some high-quality photos (.HEIC format) are best viewed natively on Apple devices.</div>
+    <div class="modal-gallery" id="modal-gallery"></div>
+  </div>
+
+  <!-- Floating Audio -->
+
   <div class="floating-audio interactive" id="audioToggle">
     <div class="play-icon" id="playIcon">▶</div>
-    <div class="label-text" id="audioLabel" style="color: white; margin: 0; letter-spacing: 0.15em;">Play Song</div>
+    <div class="label-text" id="audioLabel" style="color:white;margin:0;letter-spacing:0.15em;">Play Song</div>
   </div>
   <audio id="bgMusic" src="song.mp3" loop></audio>
 
-  <!-- Scripts -->
+  <!-- Upload Trigger Button -->
+
+  <button class="upload-trigger interactive" id="uploadTriggerBtn" title="Upload Photos" onclick="openUploadPanel()">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="17 8 12 3 7 8"/>
+      <line x1="12" y1="3" x2="12" y2="15"/>
+    </svg>
+  </button>
+
+  <!-- ──── Upload Panel ──── -->
+
+  <div class="upload-panel" id="uploadPanel">
+    <div class="upload-backdrop" onclick="closeUploadPanel()"></div>
+    <div class="upload-box">
+      <div class="upload-box-header">
+        <div class="upload-box-title font-serif">Upload Photos</div>
+        <button class="upload-close-btn" onclick="closeUploadPanel()">✕</button>
+      </div>
+
+```
+  <!-- Step 1: Password -->
+  <div class="upload-step visible" id="step-auth">
+    <label class="upload-field-label">Enter Password</label>
+    <input class="upload-input" type="password" id="upload-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')verifyPassword()">
+    <div class="upload-error" id="auth-error">Incorrect password. Try again.</div>
+    <button class="upload-btn" onclick="verifyPassword()">Continue</button>
+  </div>
+
+  <!-- Step 2: Upload -->
+  <div class="upload-step" id="step-upload">
+    <label class="upload-field-label">Select Chapter</label>
+    <select class="upload-select" id="upload-chapter">
+      <option value="Thol Diaries">Chapter 1 — Thol Diaries</option>
+      <option value="Engagement Diaries">Chapter 2 — Engagement Diaries</option>
+      <option value="Dwarka Diaries">Chapter 3 — Dwarka Diaries</option>
+      <option value="Kanku Pagla">Chapter 4 — Kanku Pagla</option>
+    </select>
+
+    <label class="upload-field-label">Select Photos</label>
+    <div class="upload-drop-zone" id="dropZone">
+      <input type="file" id="photoFiles" accept="image/*" multiple onchange="onFilesSelected(this.files)">
+      <div class="drop-icon">📷</div>
+      <div class="drop-label">Tap to select photos<br><span>JPG, PNG, HEIC supported</span></div>
+    </div>
+
+    <div class="upload-preview" id="uploadPreview"></div>
+    <div class="preview-count" id="previewCount"></div>
+
+    <div class="upload-progress-bar-wrap" id="progressWrap">
+      <div class="upload-progress-bar" id="progressBar"></div>
+    </div>
+    <div class="upload-status-text" id="uploadStatus"></div>
+
+    <div class="upload-error" id="upload-error"></div>
+    <button class="upload-btn" id="uploadBtn" onclick="startUpload()" disabled>Upload to Chapter</button>
+  </div>
+
+  <!-- Step 3: Success -->
+  <div class="upload-step" id="step-success">
+    <div class="upload-success">
+      <div class="upload-success-icon">🌸</div>
+      <div class="upload-success-msg font-serif">Photos uploaded!</div>
+      <div class="upload-success-sub" id="success-detail">Your memories are now live.</div>
+      <br><br>
+      <button class="upload-btn" onclick="resetUploadPanel()">Upload More</button>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <script src="data.js"></script>
+
   <script>
-    // Dynamically set album covers and counts based on data.js
+    // ════════════════════════════════════════════
+    // ⚙️  CONFIG — fill in your details here
+    // ════════════════════════════════════════════
+    const GITHUB_OWNER   = 'Bhavik-15';
+    const GITHUB_REPO    = 'Valentine-Gift';
+    const GITHUB_BRANCH  = 'main';
+    const GITHUB_TOKEN   = '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';
+    const UPLOAD_PASSWORD = 'YOUR_PASSWORD_HERE';     // ← Set your password here
+
+    // Chapter folder name mapping
+    const CHAPTER_FOLDERS = {
+      'Thol Diaries':       'Thol Diaries',
+      'Engagement Diaries': 'Engagement Diaries',
+      'Dwarka Diaries':     'Dwarka Diaries',
+      'Kanku Pagla':        'Kanku Pagla'
+    };
+
+    // data.js variables → chapter keys
+    const CHAPTER_DATA = {
+      thol:       { varName: 'tholPhotos',       folder: 'Thol Diaries',       label: 'Chapter 1', title: 'Thol Diaries' },
+      engagement: { varName: 'engagementPhotos', folder: 'Engagement Diaries', label: 'Chapter 2', title: 'Engagement Diaries' },
+      dwarka:     { varName: 'dwarkaPhotos',      folder: 'Dwarka Diaries',     label: 'Chapter 3', title: 'Dwarka Diaries' },
+      kanku:      { varName: 'kankuPhotos',       folder: 'Kanku Pagla',        label: 'Chapter 4', title: 'Kanku Pagla' }
+    };
+
+    // ════════════════════════════════════════════
+    // Album Cards: load covers & counts from data.js
+    // ════════════════════════════════════════════
     document.addEventListener('DOMContentLoaded', () => {
-      if (typeof engagementPhotos !== 'undefined' && engagementPhotos.length > 0) {
-        document.getElementById('eng-cover').src = 'Engagement/' + engagementPhotos[0];
-        document.getElementById('eng-count').innerText = engagementPhotos.length + ' Photos';
-      }
+      Object.entries(CHAPTER_DATA).forEach(([key, ch]) => {
+        const photos = window[ch.varName];
+        const countEl = document.getElementById('count-' + key);
+        const imgEl   = document.getElementById('img-' + key);
+        const phEl    = document.getElementById('cover-' + key);
 
-      if (typeof kankuPhotos !== 'undefined' && kankuPhotos.length > 0) {
-        // Try to find a JPG for the cover, since HEIC won't render natively on Windows Chrome
-        let coverPhoto = kankuPhotos[0];
-        for(let i=0; i<kankuPhotos.length; i++) {
-          let lower = kankuPhotos[i].toLowerCase();
-          if(lower.endsWith('.jpg') || lower.endsWith('.jpeg')) {
-            coverPhoto = kankuPhotos[i];
-            break;
+        if (photos && photos.length > 0) {
+          // Find a JPG/PNG for the cover (HEIC won't load in Chrome)
+          let cover = photos[0];
+          for (let p of photos) {
+            if (/\.(jpg|jpeg|png|webp)$/i.test(p)) { cover = p; break; }
           }
+          imgEl.src = ch.folder + '/' + cover;
+          imgEl.style.display = 'block';
+          if (phEl) phEl.style.display = 'none';
+          countEl.innerText = photos.length + ' Photos';
+        } else {
+          countEl.innerText = '0 Photos';
         }
-        document.getElementById('kanku-cover').src = 'Kanku Pagla/' + coverPhoto;
-        document.getElementById('kanku-count').innerText = kankuPhotos.length + ' Photos';
-      }
+      });
     });
-  </script>
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
 
-    // --- Custom Cursor ---
+    // ════════════════════════════════════════════
+    // Album Modal
+    // ════════════════════════════════════════════
+    let currentPhotos = [], currentFolder = '', currentIdx = 0;
+    const CHUNK_SIZE = 12;
+
+    function loadMorePhotos() {
+      if (currentIdx >= currentPhotos.length) return;
+      const gallery  = document.getElementById('modal-gallery');
+      const fragment = document.createDocumentFragment();
+      const endIdx   = Math.min(currentIdx + CHUNK_SIZE, currentPhotos.length);
+      for (let i = currentIdx; i < endIdx; i++) {
+        const img = document.createElement('img');
+        img.src = currentFolder + currentPhotos[i];
+        img.loading = 'lazy'; img.decoding = 'async';
+        fragment.appendChild(img);
+      }
+      const trigger = document.getElementById('scroll-trigger');
+      gallery.insertBefore(fragment, trigger);
+      currentIdx = endIdx;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) loadMorePhotos();
+    }, { root: document.getElementById('album-modal'), rootMargin: '300px' });
+
+    function openAlbum(key) {
+      const ch = CHAPTER_DATA[key];
+      const photos = window[ch.varName] || [];
+      const modal  = document.getElementById('album-modal');
+      const gallery = document.getElementById('modal-gallery');
+
+      document.getElementById('modal-chapter-tag').innerText = ch.label;
+      document.getElementById('modal-title').innerText = ch.title;
+      gallery.innerHTML = '<div id="scroll-trigger" style="height:1px;width:100%;grid-column:1/-1;"></div>';
+
+      if (photos.length === 0) {
+        gallery.innerHTML += `
+          <div class="modal-empty">
+            <div class="modal-empty-icon">📷</div>
+            <div class="modal-empty-text">No photos yet — upload the first memory!</div>
+          </div>`;
+      } else {
+        currentPhotos = photos;
+        currentFolder = ch.folder + '/';
+        currentIdx = 0;
+        loadMorePhotos();
+        observer.observe(document.getElementById('scroll-trigger'));
+      }
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAlbum() {
+      document.getElementById('album-modal').classList.remove('active');
+      document.body.style.overflow = '';
+      observer.disconnect();
+    }
+
+    // ════════════════════════════════════════════
+    // Upload Panel
+    // ════════════════════════════════════════════
+    let selectedFiles = [];
+
+    function openUploadPanel() {
+      document.getElementById('uploadPanel').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeUploadPanel() {
+      document.getElementById('uploadPanel').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function resetUploadPanel() {
+      showStep('step-upload');
+      selectedFiles = [];
+      document.getElementById('photoFiles').value = '';
+      document.getElementById('uploadPreview').innerHTML = '';
+      document.getElementById('previewCount').innerText = '';
+      document.getElementById('uploadBtn').disabled = true;
+      document.getElementById('progressWrap').classList.remove('visible');
+      document.getElementById('progressBar').style.width = '0%';
+      document.getElementById('uploadStatus').innerText = '';
+      document.getElementById('upload-error').classList.remove('visible');
+    }
+
+    function showStep(id) {
+      ['step-auth','step-upload','step-success'].forEach(s => {
+        document.getElementById(s).classList.remove('visible');
+      });
+      document.getElementById(id).classList.add('visible');
+    }
+
+    function verifyPassword() {
+      const pw = document.getElementById('upload-password').value;
+      const err = document.getElementById('auth-error');
+      if (pw === UPLOAD_PASSWORD) {
+        err.classList.remove('visible');
+        document.getElementById('upload-password').value = '';
+        showStep('step-upload');
+      } else {
+        err.classList.add('visible');
+      }
+    }
+
+    function onFilesSelected(files) {
+      selectedFiles = Array.from(files);
+      const preview = document.getElementById('uploadPreview');
+      const count   = document.getElementById('previewCount');
+      preview.innerHTML = '';
+
+      selectedFiles.slice(0, 12).forEach(f => {
+        if (!f.type.startsWith('image/')) return;
+        const thumb = document.createElement('img');
+        thumb.className = 'preview-thumb';
+        thumb.src = URL.createObjectURL(f);
+        preview.appendChild(thumb);
+      });
+
+      const extra = selectedFiles.length > 12 ? ` (+${selectedFiles.length - 12} more)` : '';
+      count.innerText = selectedFiles.length > 0
+        ? `${selectedFiles.length} photo${selectedFiles.length > 1 ? 's' : ''} selected${extra}`
+        : '';
+
+      document.getElementById('uploadBtn').disabled = selectedFiles.length === 0;
+    }
+
+    // Drag & Drop
+    const dropZone = document.getElementById('dropZone');
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault(); dropZone.classList.remove('drag-over');
+      onFilesSelected(e.dataTransfer.files);
+    });
+
+    // ──── GitHub Upload ────
+    async function fileToBase64(file) {
+      return new Promise((res, rej) => {
+        const r = new FileReader();
+        r.onload = () => res(r.result.split(',')[1]);
+        r.onerror = rej;
+        r.readAsDataURL(file);
+      });
+    }
+
+    async function uploadFileToGitHub(path, base64Content, message) {
+      // Check if file exists (to get sha for update)
+      let sha = undefined;
+      try {
+        const check = await fetch(
+          `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${encodeURIComponent(path)}`,
+          { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: 'application/vnd.github.v3+json' } }
+        );
+        if (check.ok) { const d = await check.json(); sha = d.sha; }
+      } catch(e) {}
+
+      const body = { message, content: base64Content, branch: GITHUB_BRANCH };
+      if (sha) body.sha = sha;
+
+      const res = await fetch(
+        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${encodeURIComponent(path)}`,
+        {
+          method: 'PUT',
+          headers: {
+            Authorization: `token ${GITHUB_TOKEN}`,
+            'Content-Type': 'application/json',
+            Accept: 'application/vnd.github.v3+json'
+          },
+          body: JSON.stringify(body)
+        }
+      );
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || 'GitHub API error');
+      }
+      return res.json();
+    }
+
+    async function updateDataJs(chapterKey, newFileNames) {
+      // Fetch current data.js from GitHub
+      const res = await fetch(
+        `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/data.js`,
+        { headers: { Authorization: `token ${GITHUB_TOKEN}`, Accept: 'application/vnd.github.v3+json' } }
+      );
+      const fileData = await res.json();
+      const currentContent = atob(fileData.content.replace(/\n/g,''));
+      const sha = fileData.sha;
+
+      // Parse and update the array for this chapter
+      const varName = CHAPTER_DATA[chapterKey].varName;
+
+      // Match the variable declaration
+      const regex = new RegExp(`(const\\s+${varName}\\s*=\\s*)(\\[[\\s\\S]*?\\])(\\s*;)`, 'm');
+      let existing = [];
+      const match = currentContent.match(regex);
+      if (match) {
+        try { existing = JSON.parse(match[2]); } catch(e) {}
+      }
+
+      // Merge new files (avoid duplicates)
+      const merged = [...new Set([...existing, ...newFileNames])];
+      const newArray = JSON.stringify(merged, null, 2);
+
+      let newContent;
+      if (match) {
+        newContent = currentContent.replace(regex, `$1${newArray}$3`);
+      } else {
+        // Append new variable
+        newContent = currentContent + `\nconst ${varName} = ${newArray};\n`;
+      }
+
+      const base64 = btoa(unescape(encodeURIComponent(newContent)));
+      await uploadFileToGitHub('data.js', base64, `Update ${varName} with ${newFileNames.length} new photo(s)`);
+    }
+
+    async function startUpload() {
+      if (selectedFiles.length === 0) return;
+
+      const chapterName = document.getElementById('upload-chapter').value;
+      // Find the key for this chapter name
+      const chapterKey = Object.entries(CHAPTER_DATA).find(([k,v]) => v.title === chapterName || v.folder === chapterName)?.[0];
+
+      const errEl = document.getElementById('upload-error');
+      const btn   = document.getElementById('uploadBtn');
+      const progressWrap = document.getElementById('progressWrap');
+      const progressBar  = document.getElementById('progressBar');
+      const statusText   = document.getElementById('uploadStatus');
+
+      errEl.classList.remove('visible');
+      btn.disabled = true;
+      progressWrap.classList.add('visible');
+      progressBar.style.width = '0%';
+
+      const folder = CHAPTER_DATA[chapterKey].folder;
+      const uploadedNames = [];
+      const total = selectedFiles.length;
+
+      try {
+        for (let i = 0; i < total; i++) {
+          const file = selectedFiles[i];
+          statusText.innerText = `Uploading ${i + 1} of ${total}: ${file.name}`;
+
+          const base64 = await fileToBase64(file);
+          const filePath = `${folder}/${file.name}`;
+          await uploadFileToGitHub(filePath, base64, `Add photo: ${file.name} to ${folder}`);
+          uploadedNames.push(file.name);
+
+          progressBar.style.width = ((i + 1) / (total + 1) * 100) + '%';
+        }
+
+        // Update data.js
+        statusText.innerText = 'Updating photo list…';
+        await updateDataJs(chapterKey, uploadedNames);
+
+        progressBar.style.width = '100%';
+        document.getElementById('success-detail').innerText =
+          `${total} photo${total > 1 ? 's' : ''} added to "${folder}". Refresh the page to see them!`;
+
+        setTimeout(() => showStep('step-success'), 400);
+
+      } catch(err) {
+        errEl.innerText = 'Upload failed: ' + err.message;
+        errEl.classList.add('visible');
+        btn.disabled = false;
+        statusText.innerText = '';
+      }
+    }
+
+    // ════════════════════════════════════════════
+    // Cursor
+    // ════════════════════════════════════════════
     const cursor = document.getElementById('cursor');
     const cursorDot = document.getElementById('cursor-dot');
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let cursorX = mouseX;
-    let cursorY = mouseY;
+    let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
+    let cursorX = mouseX, cursorY = mouseY;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
       cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
+      cursorDot.style.top  = mouseY + 'px';
     });
-
-    // Smooth follow for outer circle
     gsap.ticker.add(() => {
       cursorX += (mouseX - cursorX) * 0.15;
       cursorY += (mouseY - cursorY) * 0.15;
       cursor.style.left = cursorX + 'px';
-      cursor.style.top = cursorY + 'px';
+      cursor.style.top  = cursorY + 'px';
     });
-
-    // Hover states for cursor
-    const interactives = document.querySelectorAll('.interactive');
-    interactives.forEach(el => {
+    document.querySelectorAll('.interactive').forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursor.style.width = '60px';
-        cursor.style.height = '60px';
-        cursor.style.backgroundColor = 'rgba(212, 163, 115, 0.1)';
+        cursor.style.width = '60px'; cursor.style.height = '60px';
+        cursor.style.backgroundColor = 'rgba(212,163,115,0.1)';
       });
       el.addEventListener('mouseleave', () => {
-        cursor.style.width = '40px';
-        cursor.style.height = '40px';
+        cursor.style.width = '40px'; cursor.style.height = '40px';
         cursor.style.backgroundColor = 'transparent';
       });
     });
 
-    // --- Lenis Smooth Scroll ---
-    const lenis = new Lenis({
-      duration: 1.8,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    lenis.stop(); // Stop during loader
-
+    // ════════════════════════════════════════════
+    // Lenis
+    // ════════════════════════════════════════════
+    gsap.registerPlugin(ScrollTrigger);
+    const lenis = new Lenis({ duration: 1.8, easing: t => Math.min(1, 1.001 - Math.pow(2,-10*t)), smoothWheel: true });
+    lenis.stop();
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.add(time => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0, 0);
 
-    // --- Preloader ---
-    let progress = { val: 0 };
-    gsap.to(progress, {
-      val: 100,
-      duration: 2.5,
-      ease: "power2.inOut",
+    // ════════════════════════════════════════════
+    // Preloader
+    // ════════════════════════════════════════════
+    let prog = { val: 0 };
+    gsap.to(prog, {
+      val: 100, duration: 2.5, ease: 'power2.inOut',
       onUpdate: () => {
-        document.getElementById('loader-perc').innerText = Math.round(progress.val) + "%";
-        document.getElementById('loader-bar').style.width = progress.val + "%";
+        document.getElementById('loader-perc').innerText = Math.round(prog.val) + '%';
+        document.getElementById('loader-bar').style.width = prog.val + '%';
       },
       onComplete: () => {
-        gsap.to('#preloader', {
-          opacity: 0,
-          duration: 1.2,
-          ease: "power2.inOut",
+        gsap.to('#preloader', { opacity: 0, duration: 1.2, ease: 'power2.inOut',
           onComplete: () => {
             document.getElementById('preloader').style.display = 'none';
-            lenis.start();
-            initHeroAnimation();
+            lenis.start(); initHeroAnimation();
           }
         });
       }
     });
 
-    // --- Animations ---
     function initHeroAnimation() {
-      gsap.to('.hero-title-line', {
-        y: "0%",
-        duration: 1.5,
-        stagger: 0.15,
-        ease: "power3.out"
-      });
-
-      gsap.to('.hero-bg', {
-        scale: 1,
-        duration: 3,
-        ease: "power2.out"
-      });
+      gsap.to('.hero-title-line', { y: '0%', duration: 1.5, stagger: 0.15, ease: 'power3.out' });
+      gsap.to('.hero-bg', { scale: 1, duration: 3, ease: 'power2.out' });
     }
 
-    // --- Horizontal Gallery Scroll & Parallax ---
+    // ════════════════════════════════════════════
+    // Horizontal Gallery
+    // ════════════════════════════════════════════
     const galleryContainer = document.querySelector('.gallery-container');
     const galleryTrack = document.querySelector('.gallery-track');
-
     if (galleryContainer && galleryTrack) {
       const getScrollAmount = () => galleryTrack.scrollWidth - window.innerWidth;
-
       const tween = gsap.to(galleryTrack, {
-        x: () => -getScrollAmount(),
-        ease: "none",
+        x: () => -getScrollAmount(), ease: 'none',
         scrollTrigger: {
-          trigger: galleryContainer,
-          start: "top top",
-          end: () => `+=${getScrollAmount()}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true
+          trigger: galleryContainer, start: 'top top',
+          end: () => `+=${getScrollAmount()}`, pin: true, scrub: 1, invalidateOnRefresh: true
         }
       });
-
-      // Horizontal Image Parallax (moves opposite to scroll direction)
       gsap.utils.toArray('.h-parallax-img').forEach(img => {
         gsap.to(img, {
-          x: "10%",
-          ease: "none",
+          x: '10%', ease: 'none',
           scrollTrigger: {
-            trigger: img.parentElement.parentElement,
-            containerAnimation: tween,
-            start: "left right",
-            end: "right left",
-            scrub: true
+            trigger: img.parentElement.parentElement, containerAnimation: tween,
+            start: 'left right', end: 'right left', scrub: true
           }
         });
       });
     }
 
-    // Text Reveal (Statement & Headings)
-    gsap.utils.toArray('.gs-reveal-text').forEach(text => {
-      // Split text into words, keeping HTML tags intact if possible
-      // A simple split by space works for basic text, but we have <em> tags.
-      // For a clean fade up on the entire block:
-      gsap.fromTo(text,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: text,
-            start: "top 85%",
-          }
-        }
-      );
+    gsap.utils.toArray('.gs-reveal-text').forEach(t => {
+      gsap.fromTo(t, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out',
+        scrollTrigger: { trigger: t, start: 'top 85%' } });
     });
-
-    // Fade Up Elements (Captions, Paragraphs)
     gsap.utils.toArray('.gs-fade-up').forEach(el => {
-      gsap.fromTo(el,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 90%",
-          }
-        }
-      );
+      gsap.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.5, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' } });
     });
 
-    // --- Audio Control ---
+    // ════════════════════════════════════════════
+    // Audio
+    // ════════════════════════════════════════════
     const audioToggle = document.getElementById('audioToggle');
     const bgMusic = document.getElementById('bgMusic');
     const playIcon = document.getElementById('playIcon');
     const audioLabel = document.getElementById('audioLabel');
     let isPlaying = false;
-
     audioToggle.addEventListener('click', () => {
-      if(isPlaying) {
-        bgMusic.pause();
-        playIcon.innerText = "▶";
-        audioLabel.innerText = "Play Song";
+      if (isPlaying) {
+        bgMusic.pause(); playIcon.innerText = '▶'; audioLabel.innerText = 'Play Song';
       } else {
-        bgMusic.play();
-        playIcon.innerText = "❚❚";
-        playIcon.style.fontSize = "12px";
-        playIcon.style.paddingLeft = "0";
-        audioLabel.innerText = "Pause";
+        bgMusic.play(); playIcon.innerText = '❚❚';
+        playIcon.style.fontSize = '12px'; playIcon.style.paddingLeft = '0';
+        audioLabel.innerText = 'Pause';
       }
       isPlaying = !isPlaying;
     });
-    // --- Albums Logic ---
-    let currentPhotos = [];
-    let currentFolder = '';
-    let currentIdx = 0;
-    const CHUNK_SIZE = 12; // Load images in chunks to prevent freezing
-
-    function loadMorePhotos() {
-      if (currentIdx >= currentPhotos.length) return;
-
-      const gallery = document.getElementById('modal-gallery');
-      const fragment = document.createDocumentFragment();
-
-      const endIdx = Math.min(currentIdx + CHUNK_SIZE, currentPhotos.length);
-      for (let i = currentIdx; i < endIdx; i++) {
-        const img = document.createElement('img');
-        img.src = currentFolder + currentPhotos[i];
-        img.loading = 'lazy';
-        img.decoding = 'async'; // Super critical: Offloads decoding to a background thread!
-        fragment.appendChild(img);
-      }
-
-      const trigger = document.getElementById('scroll-trigger');
-      gallery.insertBefore(fragment, trigger);
-
-      currentIdx = endIdx;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        loadMorePhotos();
-      }
-    }, { root: document.getElementById('album-modal'), rootMargin: '300px' });
-
-    function openAlbum(type) {
-      const modal = document.getElementById('album-modal');
-      const gallery = document.getElementById('modal-gallery');
-      const title = document.getElementById('modal-title');
-
-      // Clear existing and set up the intersection observer trigger
-      gallery.innerHTML = '<div id="scroll-trigger" style="height: 1px; width: 100%; grid-column: 1 / -1;"></div>';
-
-      if(type === 'engagement') {
-        title.innerText = 'Engagement';
-        currentPhotos = typeof engagementPhotos !== 'undefined' ? engagementPhotos : [];
-        currentFolder = 'Engagement/';
-      } else {
-        title.innerText = 'Kanku Pagla';
-        currentPhotos = typeof kankuPhotos !== 'undefined' ? kankuPhotos : [];
-        currentFolder = 'Kanku Pagla/';
-      }
-
-      currentIdx = 0;
-      loadMorePhotos(); // Load first chunk immediately
-
-      const trigger = document.getElementById('scroll-trigger');
-      observer.observe(trigger);
-
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Lock background scrolling
-    }
-
-    function closeAlbum() {
-      const modal = document.getElementById('album-modal');
-      modal.classList.remove('active');
-      document.body.style.overflow = ''; // Restore background scrolling
-      observer.disconnect();
-    }
   </script>
+
 </body>
 </html>
