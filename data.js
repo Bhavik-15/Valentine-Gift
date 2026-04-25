@@ -59,7 +59,28 @@ var dwarkaPhotos = [
   "img_6759.jpeg",
   "img_6815.jpeg",
   "img_6816.jpeg",
-  "img_6814.jpeg"
+  "img_6814.jpeg",
+  "img_6878.jpeg",
+  "img_6877.jpeg",
+  "img_6875.jpeg",
+  "img_6872.jpeg",
+  "img_6871.jpeg",
+  "img_6870.jpeg",
+  "img_6867.jpeg",
+  "img_6866.jpeg",
+  "img_6865.jpeg",
+  "img_6864.jpeg",
+  "img_6863.jpeg",
+  "img_6862.jpeg",
+  "img_6841.jpeg",
+  "img_6839.jpeg",
+  "img_6835.jpeg",
+  "img_6833.jpeg",
+  "img_6830.jpeg",
+  "img_6829.jpeg",
+  "img_6828.jpeg",
+  "img_6826.jpeg",
+  "img_6761.jpeg"
 ];
 
 // Chapter 4 — Kanku Pagla
