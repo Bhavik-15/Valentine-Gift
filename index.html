@@ -923,7 +923,7 @@
     }
 
     async function apiCall(body) {
-      const res = await fetch('/.netlify/functions/upload', {
+      const res = await fetch('/api/upload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -955,6 +955,40 @@
       await apiCall({ action: 'update-data', content: newB64, sha });
     }
 
+    async function compressImage(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target.result;
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let width = img.width;
+            let height = img.height;
+            const MAX_SIZE = 1920;
+
+            if (width > height && width > MAX_SIZE) {
+              height *= MAX_SIZE / width;
+              width = MAX_SIZE;
+            } else if (height > MAX_SIZE) {
+              width *= MAX_SIZE / height;
+              height = MAX_SIZE;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            // 0.7 = 70% quality (best balance between size and looks)
+            const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+            resolve(compressedBase64.split(',')[1]); // Return just the B64 string
+          };
+        };
+      });
+    }
+
     async function startUpload() {
       if (selectedFiles.length === 0) return;
 
@@ -979,16 +1013,17 @@
       try {
         for (let i = 0; i < total; i++) {
           const file = selectedFiles[i];
-          statusText.innerText = `Uploading ${i + 1} of ${total}: ${file.name}`;
+          const fileName = file.name.toLowerCase().replace(/\.(png|webp|bmp|tiff)$/, '.jpg');
+          statusText.innerText = `Optimizing & Uploading ${i + 1} of ${total}: ${fileName}`;
 
-          const base64 = await fileToBase64(file);
+          const base64 = await compressImage(file);
           await apiCall({
             action: 'upload',
-            filePath: `${folder}/${file.name}`,
+            filePath: `${folder}/${fileName}`,
             fileContent: base64,
-            commitMessage: `Add photo: ${file.name} to ${folder}`
+            commitMessage: `Add optimized photo: ${fileName} to ${folder}`
           });
-          uploadedNames.push(file.name);
+          uploadedNames.push(fileName);
           progressBar.style.width = ((i + 1) / (total + 1) * 100) + '%';
         }
 
