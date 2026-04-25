@@ -939,7 +939,8 @@
       const currentContent = decodeURIComponent(escape(atob(b64Content.replace(/\n/g, ''))));
 
       const varName = CHAPTER_DATA[chapterKey].varName;
-      const regex = new RegExp(`(const\\s+${varName}\\s*=\\s*)(\\[[\\s\\S]*?\\])(\\s*;)`, 'm');
+      // Matches "const varName = [...];" or "var varName = [...];"
+      const regex = new RegExp(`((?:const|var)\\s+${varName}\\s*=\\s*)(\\[[\\s\\S]*?\\])(\\s*;)`, 'm');
       let existing = [];
       const match = currentContent.match(regex);
       if (match) { try { existing = JSON.parse(match[2]); } catch(e) {} }
