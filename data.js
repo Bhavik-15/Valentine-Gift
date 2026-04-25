@@ -1,17 +1,6 @@
 // Chapter 1 — Thol Diaries
 var tholPhotos = [
   "IMG_4394.JPG",
-  "IMG_4395.JPG",
-  "IMG_4396.JPG",
-  "IMG_4397.JPG",
-  "IMG_4398.JPG",
-  "IMG_4399.JPG",
-  "IMG_4400.JPG",
-  "IMG_4401.JPG",
-  "IMG_4402.JPG",
-  "IMG_4403.JPG",
-  "IMG_4404.JPG",
-  "IMG_4405.JPG"
 ];
 
 // Chapter 2 — Engagement Diaries
