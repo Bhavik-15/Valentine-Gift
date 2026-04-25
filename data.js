@@ -15,4 +15,6 @@ var dwarkaPhotos = [
 ];
 
 // Chapter 4 — Kanku Pagla
-var kankuPhotos = [    ];
+var kankuPhotos = [
+  "img_7739.jpeg"
+];
