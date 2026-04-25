@@ -1,5 +1,18 @@
 // Chapter 1 — Thol Diaries
-var tholPhotos = [];
+var tholPhotos = [
+  "IMG_4394.JPG",
+  "IMG_4395.JPG",
+  "IMG_4396.JPG",
+  "IMG_4397.JPG",
+  "IMG_4398.JPG",
+  "IMG_4399.JPG",
+  "IMG_4400.JPG",
+  "IMG_4401.JPG",
+  "IMG_4402.JPG",
+  "IMG_4403.JPG",
+  "IMG_4404.JPG",
+  "IMG_4405.JPG"
+];
 
 // Chapter 2 — Engagement Diaries
 var engagementPhotos = [
@@ -55,19 +68,4 @@ var kankuPhotos = [
   "kanku_(86).jpg", "kanku_(87).jpg", "kanku_(88).jpg", "kanku_(89).jpg", "kanku_(90).jpg",
   "kanku_(91).jpg", "kanku_(92).jpg", "kanku_(93).jpg", "kanku_(94).jpg", "kanku_(95).jpg",
   "kanku_(96).jpg"
-];
-
-const tholPhotos = [
-  "IMG_4394.JPG",
-  "IMG_4395.JPG",
-  "IMG_4396.JPG",
-  "IMG_4397.JPG",
-  "IMG_4398.JPG",
-  "IMG_4399.JPG",
-  "IMG_4400.JPG",
-  "IMG_4401.JPG",
-  "IMG_4402.JPG",
-  "IMG_4403.JPG",
-  "IMG_4404.JPG",
-  "IMG_4405.JPG"
 ];
