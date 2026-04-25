@@ -1,5 +1,7 @@
 // Chapter 1 — Thol Diaries
-var tholPhotos = [  ];
+var tholPhotos = [
+  "img_4589.jpeg"
+];
 
 // Chapter 2 — Engagement Diaries
 var engagementPhotos = [
