@@ -5,6 +5,7 @@
 
 // Chapter 1 — Thol Diaries
 const tholPhotos = [
+  "IMG_4394.JPG"
 ];
 
 // Chapter 2 — Engagement Diaries
