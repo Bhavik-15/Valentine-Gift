@@ -4,7 +4,11 @@ var tholPhotos = [
   "IMG_4402.JPG",
   "IMG_4403.JPG",
   "IMG_4404.JPG",
-  "IMG_4405.JPG"
+  "IMG_4405.JPG",
+  "img_4456.jpeg",
+  "img_4448.jpeg",
+  "img_4446.jpeg",
+  "img_4206.jpeg"
 ];
 
 // Chapter 2 — Engagement Diaries
