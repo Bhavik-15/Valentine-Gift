@@ -41,7 +41,9 @@ var engagementPhotos = [
 ];
 
 // Chapter 3 — Dwarka Diaries
-var dwarkaPhotos = [];
+var dwarkaPhotos = [
+  "img_4398.jpg"
+];
 
 // Chapter 4 — Kanku Pagla
 var kankuPhotos = [
