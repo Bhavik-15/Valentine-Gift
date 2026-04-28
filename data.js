@@ -15,5 +15,5 @@ var dwarkaPhotos = [
 
 // Chapter 4 — Kanku Pagla
 var kankuPhotos = [
-
+  "6df09edf-a901-4b9b-ad7a-13a1d83e0a62.jpeg"
 ];
