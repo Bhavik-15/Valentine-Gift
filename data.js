@@ -5,7 +5,7 @@ var tholPhotos = [
 
 // Chapter 2 — Engagement Diaries
 var engagementPhotos = [
-
+  "b0bddf0a-7018-4ca5-a15f-077b00d2482a.jpeg"
 ];
 
 // Chapter 3 — Dwarka Diaries
